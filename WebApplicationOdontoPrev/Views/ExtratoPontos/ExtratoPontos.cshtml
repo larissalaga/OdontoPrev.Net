@@ -1,0 +1,50 @@
+﻿@model WebApplicationOdontoPrev.ViewModels.ExtratoPontosViewModel
+
+@{
+    ViewBag.Title = "Check-in-Home";
+    var dataHoje = DateTime.Now.ToString("dd/MM/yyyy");
+}
+<div class="container">
+    <div class="saudacao">
+        <p>Olá, @Model.NmPaciente</p>
+        <p>Plano: @Model.NmPlano</p>
+        <p>Data: @dataHoje</p>
+        <p>Você tem @Model.TotalPontos pontos</p>
+    </div>
+
+    <h2>Extrato de Pontos</h2>
+
+    <div class="">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Pontos</th>
+                    <th>Movimentação</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var extrato in Model.ExtratoPontos)
+                {
+                    <tr>
+                        <td>@extrato.DtExtrato.ToShortDateString()</td>
+                        <td>@extrato.NrNumeroPontos</td>
+                        <td>@extrato.DsMovimentacao</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <nav class="navegacao-user">
+        <button>
+            <a asp-action="PacienteHome" asp-controller="PacienteHome" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Pagina Inicial</a>
+        </button>
+        <button>
+            <a asp-action="HistoricoCheckIns" asp-controller="HistoricoCheckIns" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Histórico de Check-Ins</a>
+        </button>
+        <button>
+            <a asp-action="Perfil" asp-controller="Perfil" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Perfil</a>
+        </button>
+    </nav>
+</div>

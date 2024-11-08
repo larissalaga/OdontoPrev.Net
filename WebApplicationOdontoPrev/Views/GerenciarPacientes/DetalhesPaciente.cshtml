@@ -1,0 +1,77 @@
+﻿@model WebApplicationOdontoPrev.ViewModels.GerenciarPacientesViewModel.PacienteDados
+
+@{
+    ViewBag.Title = "Editar Paciente";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4 text-primary">Editar Paciente</h2>
+    <form asp-action="SalvarPaciente" method="post" class="needs-validation" novalidate>
+        <div class="row g-3">
+            <!-- Espaçamento entre colunas -->
+            <div class="col-md-6">
+                <label asp-for="Paciente.NmPaciente" class="form-label">Nome</label>
+                <input asp-for="Paciente.NmPaciente" class="form-control" maxlength="100" required />
+                <span asp-validation-for="Paciente.NmPaciente" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Paciente.DtNascimento" class="form-label">Data de Nascimento</label>
+                <input asp-for="Paciente.DtNascimento" class="form-control" type="date" required />
+                <span asp-validation-for="Paciente.DtNascimento" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Paciente.NrCpf" class="form-label">CPF</label>
+                <input asp-for="Paciente.NrCpf" class="form-control" maxlength="11" required />
+                <span asp-validation-for="Paciente.NrCpf" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Paciente.DsSexo" class="form-label">Sexo</label>
+                <select asp-for="Paciente.DsSexo" class="form-select" required>
+                    <option value="">Selecione</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                    <option value="N">Não Informado</option>
+                </select>
+                <span asp-validation-for="Paciente.DsSexo" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Paciente.NrTelefone" class="form-label">Telefone</label>
+                <input asp-for="Paciente.NrTelefone" class="form-control" maxlength="30" required />
+                <span asp-validation-for="Paciente.NrTelefone" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Paciente.DsEmail" class="form-label">Email</label>
+                <input asp-for="Paciente.DsEmail" class="form-control" type="email" maxlength="70" required />
+                <span asp-validation-for="Paciente.DsEmail" class="text-danger"></span>
+            </div>
+
+            <h4 class="text-center text-primary mt-4">Dados do Plano</h4>
+
+            <div class="col-md-6">
+                <label asp-for="Plano.DsCodigoPlano" class="form-label">Código do Plano</label>
+                <input asp-for="Plano.DsCodigoPlano" class="form-control" maxlength="15" required />
+                <span asp-validation-for="Plano.DsCodigoPlano" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Plano.NmPlano" class="form-label">Nome do Plano</label>
+                <input asp-for="Plano.NmPlano" class="form-control" maxlength="60" required />
+                <span asp-validation-for="Plano.NmPlano" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <button type="submit" class="btn btn-primary btn-lg rounded-pill me-2">Salvar</button>
+            <a asp-action="Index" class="btn btn-secondary btn-lg rounded-pill">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

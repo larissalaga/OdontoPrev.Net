@@ -1,0 +1,21 @@
+﻿@model WebApplicationOdontoPrev.ViewModels.AdminViewModel
+@{
+    ViewData["Title"] = "Administrador";
+}
+
+<div class="container text-center mt-5">
+    <h1 class="display-4 text-primary mb-3">Página Admin @Model.Name</h1>
+    <p class="lead mb-4">Selecione a entidade que você quer ver/editar:</p>
+
+    <div class="d-flex flex-column gap-3 align-items-center">
+        <button type="button" class="btn btn-primary btn-lg rounded-pill" onclick="location.href='@Url.Action("Index", "GerenciarPacientes")'">
+            Pacientes
+        </button>
+        <button type="button" class="btn btn-success btn-lg rounded-pill">
+            Dentista
+        </button>
+        <button type="button" class="btn btn-warning text-white btn-lg rounded-pill">
+            Outra Entidade
+        </button>
+    </div>
+</div>

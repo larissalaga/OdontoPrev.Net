@@ -1,0 +1,84 @@
+﻿@model WebApplicationOdontoPrev.ViewModels.GerenciarPacientesViewModel
+
+@{
+    ViewBag.Title = "Gerenciar Pacientes";
+    var sortOrder = TempData["CurrentSortOrder"] as string ?? "asc";
+    var currentField = TempData["CurrentSortField"] as string;
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="display-4 text-primary">Gerenciar Pacientes</h1>
+    </div>
+
+    <table class="table table-hover table-bordered align-middle">
+        <thead style="background-color: #0054A6; color: white;">
+            <tr class="text-center">
+                <th>
+                    <a asp-action="OrdenarPacientes"
+                       asp-route-campo="Nome"
+                       asp-route-sortOrder="@(currentField == "Nome" && sortOrder == "asc" ? "desc" : "asc")"
+                       class="text-white text-decoration-none">
+                        Nome @if (currentField == "Nome")
+                        {
+                            <span>@(sortOrder == "asc" ? "↑" : "↓")</span>
+                        }
+                    </a>
+                </th>
+                <th>
+                    <a asp-action="OrdenarPacientes"
+                       asp-route-campo="Cpf"
+                       asp-route-sortOrder="@(currentField == "Cpf" && sortOrder == "asc" ? "desc" : "asc")"
+                       class="text-white text-decoration-none">
+                        CPF @if (currentField == "Cpf")
+                        {
+                            <span>@(sortOrder == "asc" ? "↑" : "↓")</span>
+                        }
+                    </a>
+                </th>
+                <th>
+                    <a asp-action="OrdenarPacientes"
+                       asp-route-campo="Plano"
+                       asp-route-sortOrder="@(currentField == "Plano" && sortOrder == "asc" ? "desc" : "asc")"
+                       class="text-white text-decoration-none">
+                        Plano @if (currentField == "Plano")
+                        {
+                            <span>@(sortOrder == "asc" ? "↑" : "↓")</span>
+                        }
+                    </a>
+                </th>
+                <th>
+                    <a asp-action="OrdenarPacientes"
+                       asp-route-campo="Nascimento"
+                       asp-route-sortOrder="@(currentField == "Nascimento" && sortOrder == "asc" ? "desc" : "asc")"
+                       class="text-white text-decoration-none">
+                        Nascimento @if (currentField == "Nascimento")
+                        {
+                            <span>@(sortOrder == "asc" ? "↑" : "↓")</span>
+                        }
+                    </a>
+                </th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var paciente in Model.Pacientes)
+            {
+                <tr>
+                    <td>@paciente.Paciente.NmPaciente</td>
+                    <td>@paciente.Paciente.NrCpf</td>
+                    <td>@paciente.Plano.NmPlano</td>
+                    <td>@paciente.Paciente.DtNascimento.ToShortDateString()</td>
+                    <td class="text-center">
+                        <a asp-action="EditarPaciente" asp-controller="GerenciarPacientes" asp-route-id="@paciente.Paciente.IdPaciente" class="btn btn-primary btn-sm rounded-pill me-1">
+                            <i class="bi bi-pencil"></i> Editar
+                        </a>
+                        <a asp-action="ExcluirPaciente" asp-controller="GerenciarPacientes" asp-route-id="@paciente.Paciente.IdPaciente" class="btn btn-warning text-white btn-sm rounded-pill">
+                            <i class="bi bi-trash"></i> Excluir
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

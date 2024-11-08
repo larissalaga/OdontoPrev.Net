@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<div class="container text-center mt-5">
+    <h1 class="display-4 text-primary mb-3">Página Inicial</h1>
+    <p class="lead mb-5">Selecione a tela que deseja acessar:</p>
+
+    <div class="d-flex justify-content-center gap-3">
+        <button type="button" class="btn btn-primary btn-lg rounded-pill" onclick="location.href='@Url.Action("Index", "Admin")'">
+            Administrador
+        </button>
+        <button type="button" class="btn btn-secondary btn-lg rounded-pill" onclick="location.href='@Url.Action("Index", "PacienteHome")'">
+            Paciente
+        </button>
+    </div>
+</div>

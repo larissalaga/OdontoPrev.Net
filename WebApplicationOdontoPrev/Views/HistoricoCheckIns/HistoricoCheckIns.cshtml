@@ -1,0 +1,49 @@
+﻿@model WebApplicationOdontoPrev.ViewModels.HistoricoCheckInsViewModel
+
+@{
+    ViewBag.Title = "HistoricoCheckIns";
+    var dataHoje = DateTime.Now.ToString("dd/MM/yyyy");
+}
+<div class="container">
+    <div class="saudacao">
+        <p>Olá, @Model.NmPaciente</p>
+        <p>Plano: @Model.NmPlano</p>
+        <p>Data: @dataHoje</p>
+    </div>
+
+    <h2>Historico Check-ins</h2>
+
+    <div class="">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Pergunta</th>
+                    <th>Resposta</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var historico in Model.PerguntasRespostas)
+                {
+                    <tr>
+                        <td>@historico.DtCheckIn.ToShortDateString()</td>
+                        <td>@historico.DsPergunta</td>
+                        <td>@historico.DsResposta</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <nav class="navegacao-user">
+        <button>
+            <a asp-action="PacienteHome" asp-controller="PacienteHome" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Pagina Inicial</a>
+        </button>
+        <button>
+            <a asp-action="ExtratoPontos" asp-controller="ExtratoPontos" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Estrato de Pontos</a>
+        </button>
+        <button>
+            <a asp-action="Perfil" asp-controller="Perfil" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Perfil</a>
+        </button>
+    </nav>
+</div>
