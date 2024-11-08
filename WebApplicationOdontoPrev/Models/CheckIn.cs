@@ -9,7 +9,7 @@ namespace WebApplicationOdontoPrev.Models
         [Key]
         [Required]
         [Column("id_check_in")]
-        [MaxLength(20)]
+        //[MaxLength(20)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdCheckIn { get; set; }
 
@@ -20,19 +20,19 @@ namespace WebApplicationOdontoPrev.Models
 
         [Required]
         [ForeignKey("Paciente")]
-        [MaxLength(20)]
+        //[MaxLength(20)]
         public int IdPaciente { get; set; }
         public Paciente? Paciente { get; set; }
 
         [Required]
         [ForeignKey("Perguntas")]
-        [MaxLength(20)]
+        //[MaxLength(20)]
         public int IdPergunta { get; set; }
         public Perguntas? Perguntas { get; set; }
 
         [Required]
         [ForeignKey("Respostas")]
-        [MaxLength(20)]
+        //[MaxLength(20)]
         public int IdResposta { get; set; }
         public Respostas? Respostas { get; set; }
 

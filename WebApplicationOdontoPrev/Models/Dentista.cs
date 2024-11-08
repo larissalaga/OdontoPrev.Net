@@ -9,7 +9,7 @@ namespace WebApplicationOdontoPrev.Models
         [Key]
         [Required]
         [Column("id_dentista")]
-        [MaxLength(20)]
+        //[MaxLength(20)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdDentista { get; set; }
 

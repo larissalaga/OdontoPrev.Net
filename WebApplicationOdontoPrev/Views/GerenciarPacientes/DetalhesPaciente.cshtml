@@ -6,9 +6,10 @@
 
 <div class="container mt-5">
     <h2 class="text-center mb-4 text-primary">Editar Paciente</h2>
-    <form asp-action="SalvarPaciente" method="post" class="needs-validation" novalidate>
+    <form asp-action="SalvarPacienteDados" method="post" class="needs-validation" novalidate>
         <div class="row g-3">
-            <!-- Espaçamento entre colunas -->
+            <input asp-for="Paciente.IdPaciente" type="hidden" />
+            <!-- Informações do Paciente -->
             <div class="col-md-6">
                 <label asp-for="Paciente.NmPaciente" class="form-label">Nome</label>
                 <input asp-for="Paciente.NmPaciente" class="form-control" maxlength="100" required />
@@ -65,6 +66,52 @@
             </div>
         </div>
 
+        <!-- Tabela de Dentistas -->
+        <h4 class="text-center text-primary mt-5">Dentistas Associados</h4>
+        <table class="table table-hover table-bordered align-middle mt-3">
+            <thead class="table-light">
+                <tr class="text-center">
+                    <th>Nome</th>
+                    <th>CRO</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var dentista in Model.Dentistas)
+                {
+                    <tr>
+                        <td>@dentista.NmDentista</td>
+                        <td>@dentista.DsCro</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-danger btn-sm rounded-pill"
+                                    onclick="location.href='@Url.Action("ExcluirDentista", "GerenciarPacientes",  new { idPaciente = Model.Paciente.IdPaciente, idDentista = dentista.IdDentista })'">
+                                <i class="bi bi-trash"></i> Excluir
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="text-center mt-3">
+            <button type="button" class="btn btn-success btn-sm rounded-pill"
+                    onclick="location.href='@Url.Action("AdicionarDentista", "GerenciarPacientes", new { idPaciente = Model.Paciente.IdPaciente })'">
+                <i class="bi bi-plus-circle"></i> Adicionar Dentista
+            </button>
+        </div>
+
+        @for (int i = 0; i < Model.Dentistas.Count; i++)
+        {
+            <input type="hidden" name="Dentistas[@i].IdDentista" value="@Model.Dentistas[i].IdDentista" />
+            <input type="hidden" name="Dentistas[@i].NmDentista" value="@Model.Dentistas[i].NmDentista" />
+            <input type="hidden" name="Dentistas[@i].DsCro" value="@Model.Dentistas[i].DsCro" />
+            <input type="hidden" name="Dentistas[@i].DsEmail" value="@Model.Dentistas[i].DsEmail" />
+            <input type="hidden" name="Dentistas[@i].NrTelefone" value="@Model.Dentistas[i].NrTelefone" />
+            <input type="hidden" name="Dentistas[@i].DsDocIdentificacao" value="@Model.Dentistas[i].DsDocIdentificacao" />
+        }
+
+
+        <!-- Botões de Ação para Salvar e Cancelar -->
         <div class="mt-4 text-center">
             <button type="submit" class="btn btn-primary btn-lg rounded-pill me-2">Salvar</button>
             <a asp-action="Index" class="btn btn-secondary btn-lg rounded-pill">Cancelar</a>

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System.Numerics;
 using WebApplicationOdontoPrev.Dtos;
 using WebApplicationOdontoPrev.Models;
 using WebApplicationOdontoPrev.Repositories.Implementations;
@@ -90,28 +91,36 @@ namespace WebApplicationOdontoPrev.Controllers
             return View("Index", viewModel);
         }
 
-        public async Task<IActionResult> EditarPaciente(int id)
+        private async Task<PacienteDados> BuscarPacienteDados(int idPaciente)
         {
-            var paciente = await _paciente.GetById(id);
-            var viewModel = new PacienteDados
+            var paciente = new Paciente();
+            var pacienteDados = new PacienteDados();
+            try
             {
-                Paciente = paciente,
-                Dentistas = await CarregarDentistas(id),
-                Plano = await CarregarPlano(paciente.IdPlano)
-            };
-            return View("DetalhesPaciente", viewModel);
+                paciente = await _paciente.GetById(idPaciente);
+                pacienteDados = new PacienteDados
+                {
+                    Paciente = paciente,
+                    Dentistas = await CarregarDentistas(idPaciente),
+                    Plano = await CarregarPlano(paciente.IdPlano)
+                };
+            }
+            catch (Exception)
+            {
+                pacienteDados = new PacienteDados();
+            }
+            return pacienteDados;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> SalvarPaciente(GerenciarPacientesViewModel.PacienteDados pacienteDados)
-        {
-            // Valida o estado do modelo
-            if (!ModelState.IsValid)
-            {
-                // Reexibe o formulário com mensagens de erro de validação
-                return View("EditPaciente", pacienteDados);
-            }
 
+        public async Task<IActionResult> EditarPaciente(int id)
+        {
+            var pacienteDados = await BuscarPacienteDados(id);
+            return View("DetalhesPaciente", pacienteDados);
+        }
+
+        private async Task<Plano> SalvarPlano(PacienteDados pacienteDados)
+        {
             var plano = new Plano();
 
             try
@@ -130,50 +139,137 @@ namespace WebApplicationOdontoPrev.Controllers
                 var planoDto = _mapper.Map<PlanoDtos>(pacienteDados.Plano);
                 plano = await _plano.Create(planoDto);
             }
+            return plano;
+        }
 
+        private async Task<Paciente> SalvarPaciente(PacienteDados pacienteDados)
+        {
             var paciente = new Paciente();
             try
             {
                 // Busca o paciente existente no banco de dados
                 paciente = await _paciente.GetById(pacienteDados.Paciente.IdPaciente);
 
-                if (paciente != null)
-                {
-                    // Atualiza as propriedades do Paciente
-                    paciente.NmPaciente = pacienteDados.Paciente.NmPaciente;
-                    paciente.DtNascimento = pacienteDados.Paciente.DtNascimento;
-                    paciente.NrCpf = pacienteDados.Paciente.NrCpf;
-                    paciente.DsSexo = pacienteDados.Paciente.DsSexo;
-                    paciente.NrTelefone = pacienteDados.Paciente.NrTelefone;
-                    paciente.DsEmail = pacienteDados.Paciente.DsEmail;
-                    paciente.IdPlano = plano.IdPlano;
+                
+                // Atualiza as propriedades do Paciente
+                paciente.NmPaciente = pacienteDados.Paciente.NmPaciente;
+                paciente.DtNascimento = pacienteDados.Paciente.DtNascimento;
+                paciente.NrCpf = pacienteDados.Paciente.NrCpf;
+                paciente.DsSexo = pacienteDados.Paciente.DsSexo;
+                paciente.NrTelefone = pacienteDados.Paciente.NrTelefone;
+                paciente.DsEmail = pacienteDados.Paciente.DsEmail;
+                paciente.IdPlano = pacienteDados.Plano.IdPlano;
 
-                    // Mapeia Models para Dtos
-                    var pacienteDto = _mapper.Map<PacienteDtos>(paciente);
+                // Mapeia Models para Dtos
+                var pacienteDto = _mapper.Map<PacienteDtos>(paciente);
 
-                    // Salva as alterações no banco de dados
-                    await _paciente.Update(paciente.NrCpf, pacienteDto);
-                }
-                else
-                {
-                    // Se o paciente não existe no banco de dados, cria um novo registro
-                    paciente = pacienteDados.Paciente;
-                    paciente.IdPlano = plano.IdPlano;
-                    var pacienteDto = _mapper.Map<PacienteDtos>(paciente);
-                    await _paciente.Create(pacienteDto);
-                }
+                // Salva as alterações no banco de dados
+                await _paciente.Update(paciente.NrCpf, pacienteDto);                
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 // Se o paciente não existe no banco de dados, cria um novo registro
                 paciente = pacienteDados.Paciente;
-                paciente.IdPlano = plano.IdPlano;
-                paciente.Plano = plano;
+                paciente.IdPlano = pacienteDados.Plano.IdPlano;
                 var pacienteDto = _mapper.Map<PacienteDtos>(paciente);
                 await _paciente.Create(pacienteDto);
-            }            
+            }
+            return paciente;
+        }
 
-            // Redireciona para a visão de índice ou outra visão apropriada
+        private async Task<Dentista> SalvarDentista(Dentista dentista)
+        {
+            var novoDentista = new Dentista();
+            try
+            {
+                // Busca o dentista existente no banco de dados
+                novoDentista = await _dentista.GetByDsCro(dentista.DsCro);
+
+                // Atualiza as propriedades do Dentista
+                novoDentista.NmDentista = dentista.NmDentista;
+                novoDentista.DsCro = dentista.DsCro;
+                novoDentista.NrTelefone = dentista.NrTelefone;
+                novoDentista.DsEmail = dentista.DsEmail;
+
+                // Mapeia Models para Dtos
+                var dentistaDto = _mapper.Map<DentistaDtos>(novoDentista);
+
+                // Salva as alterações no banco de dados
+                await _dentista.Update(novoDentista.DsCro, dentistaDto);
+            }
+            catch (Exception)
+            {
+                // Se o dentista não existe no banco de dados, cria um novo registro
+                novoDentista = dentista;
+                var dentistaDto = _mapper.Map<DentistaDtos>(novoDentista);
+                await _dentista.Create(dentistaDto);
+            }
+            return novoDentista;
+        }
+
+        private async Task<PacienteDentista> SalvarPacienteDentista(Paciente paciente, Dentista dentista)
+        {
+            var pacienteDentista = new PacienteDentista();
+            try {
+                pacienteDentista = await _pacienteDentista.GetById(paciente.IdPaciente, dentista.IdDentista);
+            }
+            catch (Exception)
+            {
+                pacienteDentista.IdPaciente = paciente.IdPaciente;
+                pacienteDentista.IdDentista = dentista.IdDentista;
+                var pacienteDentistaDto = _mapper.Map<PacienteDentistaDtos>(pacienteDentista);
+                await _pacienteDentista.Create(pacienteDentistaDto);
+            }
+            return pacienteDentista;
+        }
+        private async Task<PacienteDados> SalvarDentistas(PacienteDados pacienteDados)
+        {
+            var novoPacienteDados = new PacienteDados
+            {
+                Paciente = pacienteDados.Paciente,
+                Plano = pacienteDados.Plano,
+                Dentistas = new List<Dentista>()
+            };
+
+            await _pacienteDentista.DeleteByIdPaciente(pacienteDados.Paciente.IdPaciente);
+            
+            foreach (var dentista in pacienteDados.Dentistas)
+            {                
+                var novoDentista = await SalvarDentista(dentista);
+                var pacienteDentista = await SalvarPacienteDentista(pacienteDados.Paciente, novoDentista);
+                novoPacienteDados.Dentistas.Add(novoDentista);
+            }
+            return pacienteDados;
+        }
+
+        public async Task<IActionResult> ExcluirDentista(int idPaciente, int idDentista)
+        {
+            var pacienteDados = await BuscarPacienteDados(idPaciente);
+            var novoPacienteDados = new PacienteDados
+            {
+                Paciente = pacienteDados.Paciente,
+                Plano = pacienteDados.Plano,
+                Dentistas = pacienteDados.Dentistas.Where(x => x.IdDentista != idDentista).ToList()
+            };            
+            return View("DetalhesPaciente", novoPacienteDados);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SalvarPacienteDados(GerenciarPacientesViewModel.PacienteDados pacienteDados)
+        {
+            // Valida o estado do modelo
+            if (!ModelState.IsValid)
+            {
+                // Reexibe o formulário com mensagens de erro de validação
+                return View("EditPaciente", pacienteDados);
+            }
+
+            pacienteDados.Plano = await SalvarPlano(pacienteDados);
+            pacienteDados.Paciente = await SalvarPaciente(pacienteDados);
+            
+            var novoPacienteDados = await SalvarDentistas(pacienteDados);
+
+            // Redireciona para a visão de índice
             return RedirectToAction("Index");
         }
 

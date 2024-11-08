@@ -12,7 +12,7 @@ namespace WebApplicationOdontoPrev.Models
         [Key]
         [Required]
         [Column("id_raio_x")]
-        [MaxLength(20)]
+        //[MaxLength(20)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdRaioX { get; set; }
 
@@ -32,7 +32,7 @@ namespace WebApplicationOdontoPrev.Models
 
         [Required]
         [ForeignKey("Paciente")]
-        [MaxLength(20)]
+        //[MaxLength(20)]
         public int IdPaciente { get; set; }
         public Paciente? Paciente { get; set; }
     }

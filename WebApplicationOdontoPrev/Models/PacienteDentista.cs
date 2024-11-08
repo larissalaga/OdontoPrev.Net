@@ -11,14 +11,14 @@ namespace WebApplicationOdontoPrev.Models
         [Key]
         [Required]
         [ForeignKey("Paciente")]
-        [MaxLength(20)]
+        //[MaxLength(20)]
         public int IdPaciente { get; set; }
         public Paciente? Paciente { get; set; }
 
         [Key]
         [Required]
         [ForeignKey("Dentista")]
-        [MaxLength(20)]
+        //[MaxLength(20)]
         public int IdDentista { get; set; }
         public Dentista? Dentista { get; set; }
     }

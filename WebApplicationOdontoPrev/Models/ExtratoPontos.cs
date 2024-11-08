@@ -9,7 +9,7 @@ namespace WebApplicationOdontoPrev.Models
         [Key]
         [Required]
         [Column("id_extrato_pontos")]
-        [MaxLength(20)]
+        //[MaxLength(20)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdExtratoPontos { get; set; }
 
@@ -20,7 +20,7 @@ namespace WebApplicationOdontoPrev.Models
 
         [Required]
         [Column("nr_numero_pontos")]
-        [MaxLength(10)]
+        //[MaxLength(10)]
         public int NrNumeroPontos { get; set; }
 
         [Required]
@@ -30,7 +30,7 @@ namespace WebApplicationOdontoPrev.Models
 
         [Required]
         [ForeignKey("Paciente")]
-        [MaxLength(20)]
+        //[MaxLength(20)]
         public int IdPaciente { get; set; }
         public Paciente? Paciente { get; set; } 
     }
