@@ -272,8 +272,42 @@ namespace WebApplicationOdontoPrev.Controllers
             // Redireciona para a visão de índice
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public async Task<IActionResult> SalvarPerfil(PerfilViewModel perfil)
+        {
+            var pacienteDados = await BuscarPacienteDados(perfil.IdPaciente);
+            pacienteDados.Paciente.NmPaciente = perfil.NmPaciente;
+            pacienteDados.Paciente.DtNascimento = perfil.DtNascimento;
+            pacienteDados.Paciente.DsSexo = perfil.DsSexo;  
+            pacienteDados.Paciente.NrTelefone = perfil.NrTelefone;
+            pacienteDados.Paciente.DsEmail = perfil.DsEmail;
+            pacienteDados.Paciente = await SalvarPaciente(pacienteDados);
+            
+            return RedirectToAction("Index", "PacienteHome", new { id = perfil.IdPaciente });
 
-
+        }
+        public async Task<IActionResult> ExcluirPaciente(int id)
+        {
+            /*var paciente = await _paciente.GetById(id);
+            await _paciente.Delete(paciente.NrCpf);*/
+            return RedirectToAction("Index");
+        }
+        public async Task<IActionResult> Perfil(int id)
+        {
+            var pacienteDados = await BuscarPacienteDados(id);
+            var perfil = new PerfilViewModel
+            {
+                IdPaciente = pacienteDados.Paciente.IdPaciente,
+                NmPaciente = pacienteDados.Paciente.NmPaciente,
+                NrCpf = pacienteDados.Paciente.NrCpf,
+                NmPlano = pacienteDados.Plano.NmPlano,
+                DtNascimento = pacienteDados.Paciente.DtNascimento,
+                DsSexo = pacienteDados.Paciente.DsSexo,
+                NrTelefone = pacienteDados.Paciente.NrTelefone,
+                DsEmail = pacienteDados.Paciente.DsEmail
+            };
+            return View("Perfil", perfil);
+        }
         public async Task<IActionResult> Index()
         {
             var viewModel = await CarregarPacientes();
