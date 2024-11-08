@@ -41,15 +41,19 @@
 
 
     <nav class="navegacao-user text-center mt-4">
-        <button type="button" class="btn btn-primary btn-lg rounded-pill" onclick="location.href='@Url.Action("Index","PacienteHome")'">
+        <a asp-controller="PacienteHome" asp-action="Index" asp-route-id="@Model.IdPaciente"
+           class="btn btn-primary btn-lg rounded-pill">
             Página Inicial
-        </button>
-        </button>
-        <button type="button" class="btn btn-success btn-lg rounded-pill" onclick="location.href='@Url.Action("ExtratoPontos","ExtratoPontos")'">
+        </a>
+
+        <a asp-controller="ExtratoPontos" asp-action="Index" asp-route-id="@Model.IdPaciente"
+           class="btn btn-success btn-lg rounded-pill">
             Extrato de Pontos
-        </button>
-        <button type="button" class="btn btn-warning text-white btn-lg rounded-pill" onclick="location.href='@Url.Action("HistoricoCheckIns","HistoricoCheckIns")'">
+        </a>
+
+        <a asp-controller="HistoricoCheckIns" asp-action="Index" asp-route-id="@Model.IdPaciente"
+           class="btn btn-warning text-white btn-lg rounded-pill">
             Histórico de Check-Ins
-        </button>
+        </a>
     </nav>
 </div>

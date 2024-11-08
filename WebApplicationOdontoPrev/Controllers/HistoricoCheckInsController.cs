@@ -32,11 +32,9 @@ namespace WebApplicationOdontoPrev.Controllers
             _respostas = respostas;
         }
 
-        public async Task<IActionResult> HistoricoCheckIns()
+        public async Task<IActionResult> Index(int id)
         {
-            string NrCpf = "18207586322";
-
-            var paciente = await _paciente.GetByNrCpf(NrCpf);
+            var paciente = await _paciente.GetById(id);
             var plano = await _plano.GetById(paciente.IdPlano);
             var checkIns = await _checkIn.GetByIdPaciente(paciente.IdPaciente);
 

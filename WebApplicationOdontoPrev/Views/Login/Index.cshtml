@@ -1,0 +1,26 @@
+﻿@model WebApplicationOdontoPrev.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+<div class="container mt-5">
+    <p>Os dados do paciente serão obtidos à partir da aplicação da Odontoprev, já que o nosso projeto consiste em uma funcionalidade do mesmo.</p>
+    <p>Essa página servirá apenas para testes.</p>
+
+    <h2 class="text-primary text-center mb-4">CPF do paciente:</h2>
+
+        <form asp-action="ObterPaciente" asp-controller="Login" method="post" class="mt-4">            
+            <div class="mb-3">
+                <label asp-for="NrCpf" class="form-label">Digite o CPF </label>
+                <input asp-for="NrCpf" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Buscar Paciente</button>
+        </form>
+
+        @if (Model.IdPaciente != null)
+        {
+            <a asp-controller="PacienteHome" asp-action="Index" asp-route-id="@Model.IdPaciente"
+               class="btn btn-success w-100 mt-4">
+                Continuar para Página Inicial
+            </a>
+        }
+</div>

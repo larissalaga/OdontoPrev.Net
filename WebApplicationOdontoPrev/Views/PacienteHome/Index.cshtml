@@ -12,20 +12,23 @@
     <div class="text-center mb-4">
         <h2 class="text-primary mb-4">Faça o seu check-in diário e aproveite o nosso programa de pontos!</h2>
 
-        <button type="button" class="btn btn-primary w-100 mb-5" onclick="location.href='@Url.Action("Pergunta","CheckIn")'">
+        <a asp-controller="CheckIn" asp-action="Pergunta" asp-route-id="@Model.IdPaciente"
+           class="btn btn-primary w-100 mb-5">
             Fazer Check-In Diário!
-        </button>
+        </a>
     </div>
     <nav class="navegacao-user text-center mt-4">
-        <button type="button" class="btn btn-primary btn-lg rounded-pill" onclick="location.href='@Url.Action("ExtratoPontos","ExtratoPontos")'">
+        <a asp-controller="ExtratoPontos" asp-action="Index" asp-route-id="@Model.IdPaciente"
+           class="btn btn-primary btn-lg rounded-pill">
             Extrato de Pontos
-        </button>
-        </button>
-        <button type="button" class="btn btn-success btn-lg rounded-pill" onclick="location.href='@Url.Action("HistoricoCheckIns","HistoricoCheckIns")'">
+        </a>
+        <a asp-controller="HistoricoCheckIns" asp-action="Index" asp-route-id="@Model.IdPaciente"
+           class="btn btn-success btn-lg rounded-pill">
             Histórico de Check-Ins
-        </button>
-        <button type="button" class="btn btn-warning text-white btn-lg rounded-pill" onclick="location.href='@Url.Action("Perfil","Perfil")'">
+        </a>
+        <a asp-controller="Perfil" asp-action="Index" asp-route-id="@Model.IdPaciente"
+           class="btn btn-warning text-white btn-lg rounded-pill">
             Perfil
-        </button>
+        </a>
     </nav>
 </div>

@@ -22,12 +22,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laris/OneDrive/Área de Trabalho/Fiap/2TDSPS/OdontoPrev/.NET/OdontoPrev.Net/WebApplicationOdontoPrev/Views/CheckIn/CheckIn.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tJblxDaGVja0luLmNzaHRtbA==
+[C:/Users/laris/OneDrive/Área de Trabalho/Fiap/2TDSPS/OdontoPrev/.NET/OdontoPrev.Net/WebApplicationOdontoPrev/Views/CheckIn/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tJblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laris/OneDrive/Área de Trabalho/Fiap/2TDSPS/OdontoPrev/.NET/OdontoPrev.Net/WebApplicationOdontoPrev/Views/ExtratoPontos/ExtratoPontos.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXh0cmF0b1BvbnRvc1xFeHRyYXRvUG9udG9zLmNzaHRtbA==
+[C:/Users/laris/OneDrive/Área de Trabalho/Fiap/2TDSPS/OdontoPrev/.NET/OdontoPrev.Net/WebApplicationOdontoPrev/Views/ExtratoPontos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXh0cmF0b1BvbnRvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/laris/OneDrive/Área de Trabalho/Fiap/2TDSPS/OdontoPrev/.NET/OdontoPrev.Net/WebApplicationOdontoPrev/Views/GerenciarPacientes/DetalhesPaciente.cshtml]
@@ -38,8 +38,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VyZW5jaWFyUGFjaWVudGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laris/OneDrive/Área de Trabalho/Fiap/2TDSPS/OdontoPrev/.NET/OdontoPrev.Net/WebApplicationOdontoPrev/Views/HistoricoCheckIns/HistoricoCheckIns.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yaWNvQ2hlY2tJbnNcSGlzdG9yaWNvQ2hlY2tJbnMuY3NodG1s
+[C:/Users/laris/OneDrive/Área de Trabalho/Fiap/2TDSPS/OdontoPrev/.NET/OdontoPrev.Net/WebApplicationOdontoPrev/Views/HistoricoCheckIns/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yaWNvQ2hlY2tJbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/laris/OneDrive/Área de Trabalho/Fiap/2TDSPS/OdontoPrev/.NET/OdontoPrev.Net/WebApplicationOdontoPrev/Views/Home/Index.cshtml]
@@ -50,12 +50,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/laris/OneDrive/Área de Trabalho/Fiap/2TDSPS/OdontoPrev/.NET/OdontoPrev.Net/WebApplicationOdontoPrev/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/laris/OneDrive/Área de Trabalho/Fiap/2TDSPS/OdontoPrev/.NET/OdontoPrev.Net/WebApplicationOdontoPrev/Views/PacienteHome/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVIb21lXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laris/OneDrive/Área de Trabalho/Fiap/2TDSPS/OdontoPrev/.NET/OdontoPrev.Net/WebApplicationOdontoPrev/Views/Perfil/Perfil.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZmlsXFBlcmZpbC5jc2h0bWw=
+[C:/Users/laris/OneDrive/Área de Trabalho/Fiap/2TDSPS/OdontoPrev/.NET/OdontoPrev.Net/WebApplicationOdontoPrev/Views/Perfil/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZmlsXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/laris/OneDrive/Área de Trabalho/Fiap/2TDSPS/OdontoPrev/.NET/OdontoPrev.Net/WebApplicationOdontoPrev/Views/Shared/Error.cshtml]

@@ -21,11 +21,10 @@ namespace WebApplicationOdontoPrev.Controllers
             _plano = plano;
             _perfilViewModel = new PerfilViewModel();
         }
-        public async Task<IActionResult> Perfil()
-        {
-            string NrCpf = "18207586322";
 
-            var paciente = await _paciente.GetByNrCpf(NrCpf);
+        public async Task<IActionResult> Index(int id)
+        {
+            var paciente = await _paciente.GetById(id);
             var plano = await _plano.GetById(paciente.IdPlano);
 
             var _perfilViewModel = new PerfilViewModel

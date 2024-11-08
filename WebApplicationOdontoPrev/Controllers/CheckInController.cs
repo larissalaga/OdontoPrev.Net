@@ -32,10 +32,8 @@ namespace WebApplicationOdontoPrev.Controllers
             _checkInViewModel = new CheckInViewModel();
         }
         public async Task<IActionResult> Pergunta(int id, int cont = 1)
-        {
-            string NrCpf = "18207586322";
-            
-            var paciente = await _paciente.GetByNrCpf(NrCpf);
+        {          
+            var paciente = await _paciente.GetById(id);
             var plano = await _plano.GetById(paciente.IdPlano);
             //var checkIns = await _checkIn.GetByIdPaciente(paciente.IdPaciente);
 
@@ -58,7 +56,7 @@ namespace WebApplicationOdontoPrev.Controllers
                 Contador = cont
                 
             };
-            return View("CheckIn",_checkInViewModel);            
+            return View("Index",_checkInViewModel);            
         }
 
         [HttpPost]

@@ -35,15 +35,17 @@
         </table>
     </div>
     <nav class="navegacao-user text-center mt-4">
-        <button type="button" class="btn btn-primary btn-lg rounded-pill" onclick="location.href='@Url.Action("Index","PacienteHome")'">
-            Página Inicial
-        </button>
-        </button>
-        <button type="button" class="btn btn-success btn-lg rounded-pill" onclick="location.href='@Url.Action("ExtratoPontos","ExtratoPontos")'">
+        <a asp-controller="PacienteHome" asp-action="Index" asp-route-id="@Model.IdPaciente"
+           class="btn btn-primary btn-lg rounded-pill">
+            Página Inicial        </a>
+
+        <a asp-controller="ExtratoPontos" asp-action="Index" asp-route-id="@Model.IdPaciente"
+           class="btn btn-success btn-lg rounded-pill">
             Extrato de Pontos
-        </button>
-        <button type="button" class="btn btn-warning text-white btn-lg rounded-pill" onclick="location.href='@Url.Action("Perfil","Perfil")'">
+        </a>
+        <a asp-controller="Perfil" asp-action="Index" asp-route-id="@Model.IdPaciente"
+           class="btn btn-warning text-white btn-lg rounded-pill">
             Perfil
-        </button>
+        </a>
     </nav>
 </div>

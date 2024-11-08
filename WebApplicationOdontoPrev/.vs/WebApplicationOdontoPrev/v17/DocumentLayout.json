@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|c:\\users\\laris\\onedrive\\\u00E1rea de trabalho\\fiap\\2tdsps\\odontoprev\\.net\\odontoprev.net\\webapplicationodontoprev\\views\\checkin\\checkin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|solutionrelative:views\\checkin\\checkin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|c:\\users\\laris\\onedrive\\\u00E1rea de trabalho\\fiap\\2tdsps\\odontoprev\\.net\\odontoprev.net\\webapplicationodontoprev\\views\\historicocheckins\\historicocheckins.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|solutionrelative:views\\historicocheckins\\historicocheckins.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,35 +9,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HistoricoCheckIns.cshtml",
-              "DocumentMoniker": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\HistoricoCheckIns\\HistoricoCheckIns.cshtml",
-              "RelativeDocumentMoniker": "Views\\HistoricoCheckIns\\HistoricoCheckIns.cshtml",
-              "ToolTip": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\HistoricoCheckIns\\HistoricoCheckIns.cshtml",
-              "RelativeToolTip": "Views\\HistoricoCheckIns\\HistoricoCheckIns.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T17:34:07.209Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CheckIn.cshtml",
-              "DocumentMoniker": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\CheckIn\\CheckIn.cshtml",
-              "RelativeDocumentMoniker": "Views\\CheckIn\\CheckIn.cshtml",
-              "ToolTip": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\CheckIn\\CheckIn.cshtml",
-              "RelativeToolTip": "Views\\CheckIn\\CheckIn.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T17:31:06.124Z",
-              "EditorCaption": ""
-            }
-          ]
+          "SelectedChildIndex": -1,
+          "Children": []
         }
       ]
     }
