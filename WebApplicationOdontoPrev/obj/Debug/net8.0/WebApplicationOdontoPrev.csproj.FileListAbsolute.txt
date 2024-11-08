@@ -248,3 +248,4 @@ C:\Users\laris\OneDrive\Área de Trabalho\Fiap\2TDSPS\OdontoPrev\.NET\OdontoPrev
 C:\Users\laris\OneDrive\Área de Trabalho\Fiap\2TDSPS\OdontoPrev\.NET\OdontoPrev.Net\WebApplicationOdontoPrev\obj\Debug\net8.0\WebApplicationOdontoPrev.pdb
 C:\Users\laris\OneDrive\Área de Trabalho\Fiap\2TDSPS\OdontoPrev\.NET\OdontoPrev.Net\WebApplicationOdontoPrev\obj\Debug\net8.0\WebApplicationOdontoPrev.genruntimeconfig.cache
 C:\Users\laris\OneDrive\Área de Trabalho\Fiap\2TDSPS\OdontoPrev\.NET\OdontoPrev.Net\WebApplicationOdontoPrev\obj\Debug\net8.0\ref\WebApplicationOdontoPrev.dll
+C:\Users\laris\OneDrive\Área de Trabalho\Fiap\2TDSPS\OdontoPrev\.NET\OdontoPrev.Net\WebApplicationOdontoPrev\obj\Debug\net8.0\WebApplicationOdontoPrev.sourcelink.json

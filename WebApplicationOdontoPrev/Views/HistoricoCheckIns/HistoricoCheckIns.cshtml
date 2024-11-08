@@ -4,18 +4,18 @@
     ViewBag.Title = "HistoricoCheckIns";
     var dataHoje = DateTime.Now.ToString("dd/MM/yyyy");
 }
-<div class="container">
-    <div class="saudacao">
-        <p>Olá, @Model.NmPaciente</p>
+<div container mt-5>
+    <div class="saudacao text-center mb-4">
+        <p class="display-6">Olá, @Model.NmPaciente</p>
         <p>Plano: @Model.NmPlano</p>
         <p>Data: @dataHoje</p>
     </div>
 
-    <h2>Historico Check-ins</h2>
+    <h2 class="text-primary">Historico de Check-ins</h2>
 
-    <div class="">
-        <table class="table table-striped">
-            <thead>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped align-middle">
+            <thead style="background-color: #0054A6; color: white;">
                 <tr>
                     <th>Data</th>
                     <th>Pergunta</th>
@@ -34,16 +34,16 @@
             </tbody>
         </table>
     </div>
-
-    <nav class="navegacao-user">
-        <button>
-            <a asp-action="PacienteHome" asp-controller="PacienteHome" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Pagina Inicial</a>
+    <nav class="navegacao-user text-center mt-4">
+        <button type="button" class="btn btn-primary btn-lg rounded-pill" onclick="location.href='@Url.Action("Index","PacienteHome")'">
+            Página Inicial
         </button>
-        <button>
-            <a asp-action="ExtratoPontos" asp-controller="ExtratoPontos" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Estrato de Pontos</a>
         </button>
-        <button>
-            <a asp-action="Perfil" asp-controller="Perfil" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Perfil</a>
+        <button type="button" class="btn btn-success btn-lg rounded-pill" onclick="location.href='@Url.Action("ExtratoPontos","ExtratoPontos")'">
+            Extrato de Pontos
+        </button>
+        <button type="button" class="btn btn-warning text-white btn-lg rounded-pill" onclick="location.href='@Url.Action("Perfil","Perfil")'">
+            Perfil
         </button>
     </nav>
 </div>

@@ -5,12 +5,14 @@
     var dataHoje = DateTime.Now.ToString("dd/MM/yyyy");
 }
 <div class="container">
-    <p>Olá, @Model.NmPaciente</p>
-    <p>Plano: @Model.NmPlano</p>
+    <div class="saudacao text-center mb-4">
+        <p class="display-6">Olá, @Model.NmPaciente</p>
+        <p>Plano: @Model.NmPlano</p>
+    </div>
 
-    <h2>Check-In Diário - @dataHoje </h2>
+    <h2 class="text-primary mb-4">Check-In Diário - <strong>@dataHoje </h2>
     <div>
-        <form asp-action="Avancar" asp-controller="CheckIn" method="post">
+        <form asp-action="Avancar" asp-controller="CheckIn" method="post" class="mt-4">
             <div class="mb-3">
                 <label class="form-label"><strong>Pergunta:</strong> @Model.DsPergunta</label>
                 <input type="hidden" asp-for="IdPergunta" />
@@ -27,7 +29,12 @@
             <input type="hidden" asp-for="NmPlano" value="@Model.NmPlano" />
 
             <div class="d-flex justify-content-between mt-4">
-                <button type="submit" class="btn btn-primary">Avançar/Concluir</button>
+                <button type="button" class="btn btn-primary btn-lg rounded-pill" onclick="location.href='@Url.Action("Index","PacienteHome")'">
+                    Voltar/Cancelar
+                </button>
+                <button type="submit" class="btn btn-success rounded-pill">
+                    Avançar/Concluir
+                </button>
             </div>
         </form>
     </div>

@@ -4,23 +4,23 @@
     ViewBag.Title = "Check-in-Home";
     var dataHoje = DateTime.Now.ToString("dd/MM/yyyy");
 }
-<div class="container">
-    <div class="saudacao">
-        <p>Olá, @Model.NmPaciente</p>
+<div class="container mt-5">
+    <div class="saudacao text-center mb-4">
+        <p class="display-6">Olá, @Model.NmPaciente</p>
         <p>Plano: @Model.NmPlano</p>
         <p>Data: @dataHoje</p>
-        <p>Você tem @Model.TotalPontos pontos</p>
+        <p>Você tem <strong>@Model.TotalPontos pontos</p>
     </div>
 
-    <h2>Extrato de Pontos</h2>
+    <h2 class="text-primary">Extrato de Pontos</h2>
 
-    <div class="">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Pontos</th>
-                    <th>Movimentação</th>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered align-middle">
+            <thead style="background-color: #0054A6; color: white;">
+                <tr class="text-center">
+                    <th class="text-white text-decoration-none">Data</th>
+                    <th class="text-white text-decoration-none">Pontos</th>
+                    <th class="text-white text-decoration-none">Movimentação</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,15 +36,16 @@
         </table>
     </div>
 
-    <nav class="navegacao-user">
-        <button>
-            <a asp-action="PacienteHome" asp-controller="PacienteHome" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Pagina Inicial</a>
+    <nav class="navegacao-user text-center mt-4">
+        <button type="button" class="btn btn-primary btn-lg rounded-pill" onclick="location.href='@Url.Action("Index","PacienteHome")'">
+            Página Inicial
         </button>
-        <button>
-            <a asp-action="HistoricoCheckIns" asp-controller="HistoricoCheckIns" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Histórico de Check-Ins</a>
         </button>
-        <button>
-            <a asp-action="Perfil" asp-controller="Perfil" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Perfil</a>
+        <button type="button" class="btn btn-success btn-lg rounded-pill" onclick="location.href='@Url.Action("HistoricoCheckIns","HistoricoCheckIns")'">
+            Histórico de Check-Ins
+        </button>
+        <button type="button" class="btn btn-warning text-white btn-lg rounded-pill" onclick="location.href='@Url.Action("Perfil","Perfil")'">
+            Perfil
         </button>
     </nav>
 </div>

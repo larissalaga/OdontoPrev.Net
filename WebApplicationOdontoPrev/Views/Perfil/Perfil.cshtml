@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "Perfil";
 }
-<div class="container">
-        <h2>Editar Perfil</h2>
+<div class="container mt-5">
+    <h2 class="text-primary text-center mb-4">Editar Perfil</h2>
 
         <form asp-action="SalvarPerfil" asp-controller="Perfil" method="post" class="mt-4">
             <div class="mb-3">
@@ -12,18 +12,18 @@
             </div>
 
             <div class="mb-3">
-            <label asp-for="DtNascimento" class="form-label">Data de Nascimento</label>
-            <input asp-for="DtNascimento" class="form-control" />
+                <label asp-for="DtNascimento" class="form-label">Data de Nascimento</label>
+                <input asp-for="DtNascimento" type="date" class="form-control" />
             </div>
 
             <div class="mb-3">
-            <label asp-for="DsSexo" class="form-label">Sexo (F/M/I): </label>
-            <input asp-for="DsSexo" class="form-control" />
+                <label asp-for="DsSexo" class="form-label">Sexo (F/M/I): </label>
+                <input asp-for="DsSexo" class="form-control" />
             </div>
 
             <div class="mb-3">
                 <label asp-for="NrTelefone" class="form-label">Telefone</label>
-                <input asp-for="NrTelefone" class="form-control" />
+                <input asp-for="NrTelefone" type="tel" class="form-control" />
             </div>
 
             <div class="mb-3">
@@ -31,23 +31,25 @@
                 <input asp-for="DsEmail" type="email" class="form-control" />
             </div>
 
-        <div class="mb-3">
-            <label asp-for="NmPlano" class="form-label">Nome Completo</label>
-            <input asp-for="NmPlano" class="form-control" />
-        </div>
+            <div class="mb-3">
+                <label asp-for="NmPlano" class="form-label">Nome Completo</label>
+                <input asp-for="NmPlano" class="form-control" />
+            </div>
 
-            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+            <button type="submit" class="btn btn-success w-100 mb-5">Salvar Alterações</button>
         </form>    
 
-    <nav class="navegacao-user">
-        <button>
-            <a asp-action="PacienteHome" asp-controller="PacienteHome" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Pagina Inicial</a>
+
+    <nav class="navegacao-user text-center mt-4">
+        <button type="button" class="btn btn-primary btn-lg rounded-pill" onclick="location.href='@Url.Action("Index","PacienteHome")'">
+            Página Inicial
         </button>
-        <button>
-            <a asp-action="ExtratoPontos" asp-controller="ExtratoPontos" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Extrato de Pontos</a>
         </button>
-        <button>
-            <a asp-action="HistoricoCheckIns" asp-controller="HistoricoCheckIns" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Histórico de Check-Ins</a>
-        </button>        
+        <button type="button" class="btn btn-success btn-lg rounded-pill" onclick="location.href='@Url.Action("ExtratoPontos","ExtratoPontos")'">
+            Extrato de Pontos
+        </button>
+        <button type="button" class="btn btn-warning text-white btn-lg rounded-pill" onclick="location.href='@Url.Action("HistoricoCheckIns","HistoricoCheckIns")'">
+            Histórico de Check-Ins
+        </button>
     </nav>
 </div>

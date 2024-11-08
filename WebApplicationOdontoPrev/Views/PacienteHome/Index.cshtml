@@ -3,25 +3,29 @@
 @{
     ViewBag.Title = "Check-in-Home";
 }
-<div class="container">
-    <div class="saudacao">
-        <p>Olá, @Model.NmPaciente / @Model.IdPaciente</p>
+<div class="container d-flex flex-column align-items-center mt-5">
+    <div class="saudacao text-center mb-4">
+        <p class="display-6">Olá, @Model.NmPaciente</p>
         <p>Plano: @Model.NmPlano</p>
-        <p>Você tem @Model.TotalPontos pontos</p>
-        <p>Faça o seu check-in diário e aproveite o nosso programa de pontos!</p>
-        <button>
-            <a asp-action="Pergunta" asp-controller="CheckIn" asp-route-id="@Model.IdPaciente" class="btn btn-primary">Fazer Check-In Diário!</a>
+        <p>Você tem <strong>@Model.TotalPontos pontos</p>
+    </div>
+    <div class="text-center mb-4">
+        <h2 class="text-primary mb-4">Faça o seu check-in diário e aproveite o nosso programa de pontos!</h2>
+
+        <button type="button" class="btn btn-primary w-100 mb-5" onclick="location.href='@Url.Action("Pergunta","CheckIn")'">
+            Fazer Check-In Diário!
         </button>
     </div>
-    <nav class="navegacao-user">
-        <button>
-            <a asp-action="ExtratoPontos" asp-controller="ExtratoPontos" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Extrato de Pontos</a>
+    <nav class="navegacao-user text-center mt-4">
+        <button type="button" class="btn btn-primary btn-lg rounded-pill" onclick="location.href='@Url.Action("ExtratoPontos","ExtratoPontos")'">
+            Extrato de Pontos
         </button>
-        <button>
-            <a asp-action="HistoricoCheckIns" asp-controller="HistoricoCheckIns" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Histórico de Check-Ins</a>
         </button>
-        <button>
-            <a asp-action="Perfil" asp-controller="Perfil" asp-route-id="@Model.IdPaciente" class="btn btn-secondary">Perfil</a>
+        <button type="button" class="btn btn-success btn-lg rounded-pill" onclick="location.href='@Url.Action("HistoricoCheckIns","HistoricoCheckIns")'">
+            Histórico de Check-Ins
         </button>
-    </nav>    
+        <button type="button" class="btn btn-warning text-white btn-lg rounded-pill" onclick="location.href='@Url.Action("Perfil","Perfil")'">
+            Perfil
+        </button>
+    </nav>
 </div>
