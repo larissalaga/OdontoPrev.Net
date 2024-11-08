@@ -28,10 +28,8 @@ namespace WebApplicationOdontoPrev.Controllers
             _pacienteHomeViewModel = new PacienteHomeViewModel();
         }
 
-        public async Task<IActionResult> Index(int id = 2)
+        public async Task<IActionResult> Index(int id)
         {
-            //string NrCpf = "18207586322";
-
             var paciente = await _paciente.GetById(id);
             var plano = await _plano.GetById(paciente.IdPlano);
             var checkIn = await _checkIn.GetByIdPaciente(paciente.IdPaciente);

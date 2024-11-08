@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|c:\\users\\laris\\onedrive\\\u00E1rea de trabalho\\fiap\\2tdsps\\odontoprev\\.net\\odontoprev.net\\webapplicationodontoprev\\views\\pacientehome\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|solutionrelative:views\\pacientehome\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|c:\\users\\laris\\onedrive\\\u00E1rea de trabalho\\fiap\\2tdsps\\odontoprev\\.net\\odontoprev.net\\webapplicationodontoprev\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|c:\\users\\laris\\onedrive\\\u00E1rea de trabalho\\fiap\\2tdsps\\odontoprev\\.net\\odontoprev.net\\webapplicationodontoprev\\views\\perfil\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|solutionrelative:views\\perfil\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|c:\\users\\laris\\onedrive\\\u00E1rea de trabalho\\fiap\\2tdsps\\odontoprev\\.net\\odontoprev.net\\webapplicationodontoprev\\views\\historicocheckins\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|solutionrelative:views\\historicocheckins\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|c:\\users\\laris\\onedrive\\\u00E1rea de trabalho\\fiap\\2tdsps\\odontoprev\\.net\\odontoprev.net\\webapplicationodontoprev\\views\\extratopontos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|solutionrelative:views\\extratopontos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|c:\\users\\laris\\onedrive\\\u00E1rea de trabalho\\fiap\\2tdsps\\odontoprev\\.net\\odontoprev.net\\webapplicationodontoprev\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|c:\\users\\laris\\onedrive\\\u00E1rea de trabalho\\fiap\\2tdsps\\odontoprev\\.net\\odontoprev.net\\webapplicationodontoprev\\viewmodels\\pacientehomeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|solutionrelative:viewmodels\\pacientehomeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|c:\\users\\laris\\onedrive\\\u00E1rea de trabalho\\fiap\\2tdsps\\odontoprev\\.net\\odontoprev.net\\webapplicationodontoprev\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F306129-9852-49B6-8675-55637B6A28CF}|WebApplicationOdontoPrev.csproj|solutionrelative:views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Controllers\\LoginController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T19:42:55.772Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\Perfil\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Perfil\\Index.cshtml",
-              "ToolTip": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\Perfil\\Index.cshtml",
-              "RelativeToolTip": "Views\\Perfil\\Index.cshtml",
-              "ViewState": "AgIAABcAAAAAAAAAAAAgwDkAAAAKAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\Login\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\Index.cshtml",
+              "ToolTip": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\Login\\Index.cshtml",
+              "RelativeToolTip": "Views\\Login\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T18:54:52.536Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\HistoricoCheckIns\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\HistoricoCheckIns\\Index.cshtml",
-              "ToolTip": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\HistoricoCheckIns\\Index.cshtml",
-              "RelativeToolTip": "Views\\HistoricoCheckIns\\Index.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACwAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T18:54:23.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\ExtratoPontos\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\ExtratoPontos\\Index.cshtml",
-              "ToolTip": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\ExtratoPontos\\Index.cshtml",
-              "RelativeToolTip": "Views\\ExtratoPontos\\Index.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAC4AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T18:53:48.473Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAACHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T18:37:25.598Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\PacienteHome\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\PacienteHome\\Index.cshtml",
-              "ToolTip": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\Views\\PacienteHome\\Index.cshtml",
-              "RelativeToolTip": "Views\\PacienteHome\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T18:34:14.642Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PacienteHomeViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\ViewModels\\PacienteHomeViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\PacienteHomeViewModel.cs",
-              "ToolTip": "C:\\Users\\laris\\OneDrive\\\u00C1rea de Trabalho\\Fiap\\2TDSPS\\OdontoPrev\\.NET\\OdontoPrev.Net\\WebApplicationOdontoPrev\\ViewModels\\PacienteHomeViewModel.cs",
-              "RelativeToolTip": "ViewModels\\PacienteHomeViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T18:32:48.243Z",
+              "WhenOpened": "2024-11-08T19:24:06.35Z",
               "EditorCaption": ""
             }
           ]

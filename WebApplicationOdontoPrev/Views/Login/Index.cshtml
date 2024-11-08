@@ -8,19 +8,20 @@
 
     <h2 class="text-primary text-center mb-4">CPF do paciente:</h2>
 
-        <form asp-action="ObterPaciente" asp-controller="Login" method="post" class="mt-4">            
-            <div class="mb-3">
+    <form asp-action="ObterPaciente" asp-controller="Login" method="post" class="mt-4">
+        <div class="mb-3">
                 <label asp-for="NrCpf" class="form-label">Digite o CPF </label>
                 <input asp-for="NrCpf" class="form-control" />
+                @Html.ValidationMessageFor(model => model.NrCpf, "", new { @class = "text-danger" })
             </div>
-            <button type="submit" class="btn btn-primary w-100">Buscar Paciente</button>
-        </form>
+        <button type="submit" class="btn btn-primary w-100">Buscar Paciente</button>
+    </form>
 
-        @if (Model.IdPaciente != null)
-        {
-            <a asp-controller="PacienteHome" asp-action="Index" asp-route-id="@Model.IdPaciente"
-               class="btn btn-success w-100 mt-4">
-                Continuar para Página Inicial
-            </a>
-        }
+    @if (Model?.IdPaciente != null)
+    {
+        <a asp-controller="PacienteHome" asp-action="Index" asp-route-id="@Model.IdPaciente"
+            class="btn btn-success w-100 mt-4">
+            Continuar para Página Inicial
+        </a>
+    }
 </div>
