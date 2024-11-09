@@ -1,7 +1,7 @@
 ﻿@model WebApplicationOdontoPrev.ViewModels.PacienteHomeViewModel
 
 @{
-    ViewBag.Title = "Check-in-Home";
+    ViewBag.Title = "Paciente Home";
 }
 <div class="container d-flex flex-column align-items-center mt-5">
     <div class="saudacao text-center mb-4">
@@ -12,7 +12,7 @@
     <div class="text-center mb-4">
         <h2 class="text-primary mb-4">Faça o seu check-in diário e aproveite o nosso programa de pontos!</h2>
 
-        <a asp-controller="CheckIn" asp-action="Pergunta" asp-route-id="@Model.IdPaciente"
+        <a asp-controller="CheckIn" asp-action="Index" asp-route-id="@Model.IdPaciente"
            class="btn btn-primary w-100 mb-5">
             Fazer Check-In Diário!
         </a>

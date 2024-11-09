@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Check-in";
-    var dataHoje = DateTime.Now.ToString("dd/MM/yyyy");
+    //var dataHoje = DateTime.Now.ToString("dd/MM/yyyy");
 }
 <div class="container">
     <div class="saudacao text-center mb-4">
@@ -10,12 +10,11 @@
         <p>Plano: @Model.NmPlano</p>
     </div>
 
-    <h2 class="text-primary mb-4">Check-In Diário - <strong>@dataHoje </h2>
+    <h2 class="text-primary mb-4">Check-In Diário - <strong>@Model.DtCheckIn</strong> </h2>
     <div>
         <form asp-action="Avancar" asp-controller="CheckIn" method="post" class="mt-4">
             <div class="mb-3">
-                <label class="form-label"><strong>Pergunta:</strong> @Model.DsPergunta</label>
-                <input type="hidden" asp-for="IdPergunta" />
+                <label class="form-label"><strong>Pergunta @Model.Contador:</strong> @Model.DsPergunta</label>
             </div>
 
             <div class="mb-3">
@@ -23,14 +22,25 @@
                 <input type="text" asp-for="DsResposta" class="form-control" />
             </div>
 
-            <input type="hidden" asp-for="Contador" value="@Model.Contador" />
             <input type="hidden" asp-for="IdPaciente" value="@Model.IdPaciente" />
-            <input type="hidden" asp-for="DtCheckIn" value="@dataHoje" />
-            <input type="hidden" asp-for="NmPlano" value="@Model.NmPlano" />
+            <input type="hidden" asp-for="NmPaciente" value="@Model.NmPaciente"/>
+            <input type="hidden" asp-for="NmPlano" value="@Model.NmPlano" />            
+            <input type="hidden" asp-for="DtCheckIn" value="@Model.DtCheckIn" />
+            <input type="hidden" asp-for="IdPergunta" value="@Model.IdPergunta"/>
+            <input type="hidden" asp-for="DsPergunta" value="@Model.DsPergunta" />
+            <input type="hidden" asp-for="Contador" value="@Model.Contador" />
 
+            <input type="hidden" asp-for="IdCheckIn" value="@Model.IdCheckIn" />
+            <input type="hidden" asp-for="IdExtratoPontos" value="@Model.IdExtratoPontos" />
+            <input type="hidden" asp-for="NrNumeroPontos" value="@Model.NrNumeroPontos" />
+            <input type="hidden" asp-for="DsMovimentacao" value="@Model.DsMovimentacao" />
+            <input type="hidden" asp-for="DtExtrato" value="@Model.DtExtrato" />                        
+            <input type="hidden" asp-for="IdResposta" value="@Model.IdResposta" />            
+            
+            
             <div class="d-flex justify-content-between mt-4">
-                <button type="button" class="btn btn-primary btn-lg rounded-pill" onclick="location.href='@Url.Action("Index","PacienteHome", Model.IdPaciente)'">
-                    Voltar/Cancelar
+                <button type="button" class="btn btn-primary btn-lg rounded-pill" onclick="location.href='@Url.Action("Index","PacienteHome", new { id = Model.IdPaciente })'">
+                    Cancelar
                 </button>
                 <button type="submit" class="btn btn-success rounded-pill">
                     Avançar/Concluir

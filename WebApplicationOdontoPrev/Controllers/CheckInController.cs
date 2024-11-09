@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using WebApplicationOdontoPrev.Dtos;
+using WebApplicationOdontoPrev.Models;
 using WebApplicationOdontoPrev.Repositories.Interfaces;
 using WebApplicationOdontoPrev.ViewModels;
 
@@ -31,49 +32,55 @@ namespace WebApplicationOdontoPrev.Controllers
             _plano = plano;
             _checkInViewModel = new CheckInViewModel();
         }
-        public async Task<IActionResult> Pergunta(int id, int cont = 1)
-        {          
+        public async Task<IActionResult> Index(int id)
+        {
+            var checkInViewModel = new CheckInViewModel();
             var paciente = await _paciente.GetById(id);
             var plano = await _plano.GetById(paciente.IdPlano);
-            //var checkIns = await _checkIn.GetByIdPaciente(paciente.IdPaciente);
 
-            if (cont > 5)
+            checkInViewModel.IdPaciente = paciente.IdPaciente;
+            checkInViewModel.NmPaciente = paciente.NmPaciente;
+            checkInViewModel.NmPlano = plano.NmPlano;
+            checkInViewModel.DtCheckIn = DateOnly.FromDateTime(DateTime.Now);
+            checkInViewModel.Contador = 1;
+
+            return RedirectToAction("Pergunta", checkInViewModel);
+        }
+        public async Task<IActionResult> Pergunta(CheckInViewModel checkInViewModel)
+        { 
+          
+            if (checkInViewModel.Contador > 5)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "PacienteHome");
             }
             
             var perguntaAleatoria = await _perguntas.GetPerguntaAleatoriaAsync();
 
             if (perguntaAleatoria == null)
             {
-                return RedirectToAction("SemPerguntas");
+                return RedirectToAction("Index", "PacienteHome");
             }
 
-            var _checkInViewModel = new CheckInViewModel
-            {
-                IdPergunta = perguntaAleatoria.IdPergunta,
-                DsPergunta = perguntaAleatoria.DsPergunta,
-                Contador = cont
-                
-            };
-            return View("Index",_checkInViewModel);            
+            checkInViewModel.IdPergunta = perguntaAleatoria.IdPergunta;
+            checkInViewModel.DsPergunta = perguntaAleatoria.DsPergunta;
+
+            return View("Index", checkInViewModel);            
         }
 
         [HttpPost]
         public async Task<IActionResult> Avancar(CheckInViewModel viewModel)
         {
-            if (!ModelState.IsValid)
+            /*if (!ModelState.IsValid)
             {
-                return View("CheckIn",viewModel);
-            }
+                return RedirectToAction("Index", "PacienteHome");
+            }*/
+
             var novaResposta = new RespostasDtos
             {
                 DsResposta = viewModel.DsResposta
             };
             var resposta = await _respostas.Create(novaResposta);
-            viewModel.DtCheckIn = DateOnly.FromDateTime(DateTime.Now);
             
-
             var novoCheckIn = new CheckInDtos
             {
                 DtCheckIn = viewModel.DtCheckIn,
@@ -82,8 +89,10 @@ namespace WebApplicationOdontoPrev.Controllers
                 IdResposta = viewModel.IdResposta
             };
             await _checkIn.Create(novoCheckIn);
+            
+            viewModel.Contador += 1;
 
-            return RedirectToAction("Pergunta", new { cont = viewModel.Contador + 1 });
+            return RedirectToAction("Pergunta", viewModel);
         }
     }
 }
