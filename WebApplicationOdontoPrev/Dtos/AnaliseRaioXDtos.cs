@@ -15,8 +15,9 @@ namespace WebApplicationOdontoPrev.Dtos
         public DateOnly DtAnaliseRaioX { get; set; } 
 
         [Required]
+        [Column("id_raio_x")]
         [ForeignKey("RaioX")]
-        [MaxLength(20)]
+        //[MaxLength(20)]
         public int IdRaioX { get; set; }
         public RaioX? RaioX { get; set; }  
     }

@@ -41,7 +41,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_DENTISTA",
                 columns: table => new
                 {
-                    id_dentista = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_dentista = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     nm_dentista = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: false),
                     ds_cro = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: false),
@@ -58,7 +58,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_PERGUNTAS",
                 columns: table => new
                 {
-                    id_pergunta = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_pergunta = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     ds_pergunta = table.Column<string>(type: "NVARCHAR2(300)", maxLength: 300, nullable: false)
                 },
@@ -71,7 +71,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_PLANO",
                 columns: table => new
                 {
-                    id_plano = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_plano = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     ds_codigo_plano = table.Column<string>(type: "NVARCHAR2(15)", maxLength: 15, nullable: false),
                     nm_plano = table.Column<string>(type: "NVARCHAR2(60)", maxLength: 60, nullable: false)
@@ -85,7 +85,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_RESPOSTAS",
                 columns: table => new
                 {
-                    id_resposta = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_resposta = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     ds_resposta = table.Column<string>(type: "NVARCHAR2(400)", maxLength: 400, nullable: false)
                 },
@@ -98,7 +98,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_PACIENTE",
                 columns: table => new
                 {
-                    id_paciente = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_paciente = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     nm_paciente = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: false),
                     dt_nascimento = table.Column<string>(type: "NVARCHAR2(10)", nullable: false),
@@ -106,14 +106,14 @@ namespace WebApplicationOdontoPrev.Migrations
                     ds_sexo = table.Column<string>(type: "NVARCHAR2(1)", maxLength: 1, nullable: false),
                     nr_telefone = table.Column<string>(type: "NVARCHAR2(30)", maxLength: 30, nullable: false),
                     ds_email = table.Column<string>(type: "NVARCHAR2(70)", maxLength: 70, nullable: false),
-                    IdPlano = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_plano = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_T_OPBD_PACIENTE", x => x.id_paciente);
                     table.ForeignKey(
-                        name: "FK_T_OPBD_PACIENTE_T_OPBD_PLANO_IdPlano",
-                        column: x => x.IdPlano,
+                        name: "FK_T_OPBD_PACIENTE_T_OPBD_PLANO_id_plano",
+                        column: x => x.id_plano,
                         principalTable: "T_OPBD_PLANO",
                         principalColumn: "id_plano",
                         onDelete: ReferentialAction.Cascade);
@@ -123,31 +123,31 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_CHECK_IN",
                 columns: table => new
                 {
-                    id_check_in = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_check_in = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     dt_check_in = table.Column<string>(type: "NVARCHAR2(10)", nullable: false),
-                    IdPaciente = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false),
-                    IdPergunta = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false),
-                    IdResposta = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_paciente = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    id_pergunta = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    id_resposta = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_T_OPBD_CHECK_IN", x => x.id_check_in);
                     table.ForeignKey(
-                        name: "FK_T_OPBD_CHECK_IN_T_OPBD_PACIENTE_IdPaciente",
-                        column: x => x.IdPaciente,
+                        name: "FK_T_OPBD_CHECK_IN_T_OPBD_PACIENTE_id_paciente",
+                        column: x => x.id_paciente,
                         principalTable: "T_OPBD_PACIENTE",
                         principalColumn: "id_paciente",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_T_OPBD_CHECK_IN_T_OPBD_PERGUNTAS_IdPergunta",
-                        column: x => x.IdPergunta,
+                        name: "FK_T_OPBD_CHECK_IN_T_OPBD_PERGUNTAS_id_pergunta",
+                        column: x => x.id_pergunta,
                         principalTable: "T_OPBD_PERGUNTAS",
                         principalColumn: "id_pergunta",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_T_OPBD_CHECK_IN_T_OPBD_RESPOSTAS_IdResposta",
-                        column: x => x.IdResposta,
+                        name: "FK_T_OPBD_CHECK_IN_T_OPBD_RESPOSTAS_id_resposta",
+                        column: x => x.id_resposta,
                         principalTable: "T_OPBD_RESPOSTAS",
                         principalColumn: "id_resposta",
                         onDelete: ReferentialAction.Cascade);
@@ -157,19 +157,19 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_EXTRATO_PONTOS",
                 columns: table => new
                 {
-                    id_extrato_pontos = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_extrato_pontos = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     dt_extrato = table.Column<string>(type: "NVARCHAR2(10)", nullable: false),
-                    nr_numero_pontos = table.Column<int>(type: "NUMBER(10)", maxLength: 10, nullable: false),
+                    nr_numero_pontos = table.Column<int>(type: "NUMBER(10)", nullable: false),
                     ds_movimentacao = table.Column<string>(type: "NVARCHAR2(50)", maxLength: 50, nullable: false),
-                    IdPaciente = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_paciente = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_T_OPBD_EXTRATO_PONTOS", x => x.id_extrato_pontos);
                     table.ForeignKey(
-                        name: "FK_T_OPBD_EXTRATO_PONTOS_T_OPBD_PACIENTE_IdPaciente",
-                        column: x => x.IdPaciente,
+                        name: "FK_T_OPBD_EXTRATO_PONTOS_T_OPBD_PACIENTE_id_paciente",
+                        column: x => x.id_paciente,
                         principalTable: "T_OPBD_PACIENTE",
                         principalColumn: "id_paciente",
                         onDelete: ReferentialAction.Cascade);
@@ -179,21 +179,21 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_PACIENTE_DENTISTA",
                 columns: table => new
                 {
-                    IdPaciente = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false),
-                    IdDentista = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_paciente = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    id_dentista = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_T_OPBD_PACIENTE_DENTISTA", x => new { x.IdPaciente, x.IdDentista });
+                    table.PrimaryKey("PK_T_OPBD_PACIENTE_DENTISTA", x => new { x.id_paciente, x.id_dentista });
                     table.ForeignKey(
-                        name: "FK_T_OPBD_PACIENTE_DENTISTA_T_OPBD_DENTISTA_IdDentista",
-                        column: x => x.IdDentista,
+                        name: "FK_T_OPBD_PACIENTE_DENTISTA_T_OPBD_DENTISTA_id_dentista",
+                        column: x => x.id_dentista,
                         principalTable: "T_OPBD_DENTISTA",
                         principalColumn: "id_dentista",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_T_OPBD_PACIENTE_DENTISTA_T_OPBD_PACIENTE_IdPaciente",
-                        column: x => x.IdPaciente,
+                        name: "FK_T_OPBD_PACIENTE_DENTISTA_T_OPBD_PACIENTE_id_paciente",
+                        column: x => x.id_paciente,
                         principalTable: "T_OPBD_PACIENTE",
                         principalColumn: "id_paciente",
                         onDelete: ReferentialAction.Cascade);
@@ -203,19 +203,19 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_RAIO_X",
                 columns: table => new
                 {
-                    id_raio_x = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_raio_x = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     ds_raio_x = table.Column<string>(type: "NVARCHAR2(200)", maxLength: 200, nullable: false),
                     im_raio_x = table.Column<byte[]>(type: "RAW(2000)", nullable: true),
                     dt_data_raio_x = table.Column<string>(type: "NVARCHAR2(10)", nullable: false),
-                    IdPaciente = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_paciente = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_T_OPBD_RAIO_X", x => x.id_raio_x);
                     table.ForeignKey(
-                        name: "FK_T_OPBD_RAIO_X_T_OPBD_PACIENTE_IdPaciente",
-                        column: x => x.IdPaciente,
+                        name: "FK_T_OPBD_RAIO_X_T_OPBD_PACIENTE_id_paciente",
+                        column: x => x.id_paciente,
                         principalTable: "T_OPBD_PACIENTE",
                         principalColumn: "id_paciente",
                         onDelete: ReferentialAction.Cascade);
@@ -225,62 +225,62 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_ANALISE_RAIO_X",
                 columns: table => new
                 {
-                    id_analise_raio_x = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_analise_raio_x = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     ds_analise_raio_x = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     dt_analise_raio_x = table.Column<string>(type: "NVARCHAR2(10)", nullable: false),
-                    IdRaioX = table.Column<int>(type: "NUMBER(10)", maxLength: 20, nullable: false)
+                    id_raio_x = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_T_OPBD_ANALISE_RAIO_X", x => x.id_analise_raio_x);
                     table.ForeignKey(
-                        name: "FK_T_OPBD_ANALISE_RAIO_X_T_OPBD_RAIO_X_IdRaioX",
-                        column: x => x.IdRaioX,
+                        name: "FK_T_OPBD_ANALISE_RAIO_X_T_OPBD_RAIO_X_id_raio_x",
+                        column: x => x.id_raio_x,
                         principalTable: "T_OPBD_RAIO_X",
                         principalColumn: "id_raio_x",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_T_OPBD_ANALISE_RAIO_X_IdRaioX",
+                name: "IX_T_OPBD_ANALISE_RAIO_X_id_raio_x",
                 table: "T_OPBD_ANALISE_RAIO_X",
-                column: "IdRaioX");
+                column: "id_raio_x");
 
             migrationBuilder.CreateIndex(
-                name: "IX_T_OPBD_CHECK_IN_IdPaciente",
+                name: "IX_T_OPBD_CHECK_IN_id_paciente",
                 table: "T_OPBD_CHECK_IN",
-                column: "IdPaciente");
+                column: "id_paciente");
 
             migrationBuilder.CreateIndex(
-                name: "IX_T_OPBD_CHECK_IN_IdPergunta",
+                name: "IX_T_OPBD_CHECK_IN_id_pergunta",
                 table: "T_OPBD_CHECK_IN",
-                column: "IdPergunta");
+                column: "id_pergunta");
 
             migrationBuilder.CreateIndex(
-                name: "IX_T_OPBD_CHECK_IN_IdResposta",
+                name: "IX_T_OPBD_CHECK_IN_id_resposta",
                 table: "T_OPBD_CHECK_IN",
-                column: "IdResposta");
+                column: "id_resposta");
 
             migrationBuilder.CreateIndex(
-                name: "IX_T_OPBD_EXTRATO_PONTOS_IdPaciente",
+                name: "IX_T_OPBD_EXTRATO_PONTOS_id_paciente",
                 table: "T_OPBD_EXTRATO_PONTOS",
-                column: "IdPaciente");
+                column: "id_paciente");
 
             migrationBuilder.CreateIndex(
-                name: "IX_T_OPBD_PACIENTE_IdPlano",
+                name: "IX_T_OPBD_PACIENTE_id_plano",
                 table: "T_OPBD_PACIENTE",
-                column: "IdPlano");
+                column: "id_plano");
 
             migrationBuilder.CreateIndex(
-                name: "IX_T_OPBD_PACIENTE_DENTISTA_IdDentista",
+                name: "IX_T_OPBD_PACIENTE_DENTISTA_id_dentista",
                 table: "T_OPBD_PACIENTE_DENTISTA",
-                column: "IdDentista");
+                column: "id_dentista");
 
             migrationBuilder.CreateIndex(
-                name: "IX_T_OPBD_RAIO_X_IdPaciente",
+                name: "IX_T_OPBD_RAIO_X_id_paciente",
                 table: "T_OPBD_RAIO_X",
-                column: "IdPaciente");
+                column: "id_paciente");
         }
 
         /// <inheritdoc />

@@ -29,7 +29,8 @@ namespace WebApplicationOdontoPrev.Models
         public string DsMovimentacao { get; set; } = string.Empty;
 
         [Required]
-        [ForeignKey("Paciente")]
+        [Column("id_paciente")]
+        [ForeignKey("Paciente")]        
         //[MaxLength(20)]
         public int IdPaciente { get; set; }
         public Paciente? Paciente { get; set; } 

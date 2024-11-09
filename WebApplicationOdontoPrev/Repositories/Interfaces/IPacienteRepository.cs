@@ -7,6 +7,7 @@ namespace WebApplicationOdontoPrev.Repositories.Interfaces
     {
         Task<Paciente> Create(PacienteDtos paciente);
         Task<Paciente> Update(string nrCpf, PacienteDtos paciente);
+        Task<Models.Paciente> UpdateById(int id, PacienteDtos paciente);
         public void Delete(string nrCpf);
         Task<List<Paciente>> GetAll();
         Task<Paciente> GetByNrCpf(string nrCpf);

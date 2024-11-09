@@ -23,8 +23,9 @@ namespace WebApplicationOdontoPrev.Models
         [DataType(DataType.Date)]
         public DateOnly DtAnaliseRaioX { get; set; } 
 
-        [Required]
+        [Required]        
         [ForeignKey("RaioX")]
+        [Column("id_raio_x")]
         //[MaxLength(20)]
         public int IdRaioX { get; set; }
         public RaioX? RaioX { get; set; }

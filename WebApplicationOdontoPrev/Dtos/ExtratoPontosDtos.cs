@@ -19,7 +19,8 @@ namespace WebApplicationOdontoPrev.Dtos
         public string DsMovimentacao { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(20)]
+        [Column("id_paciente")]
+        //[MaxLength(20)]
         public int IdPaciente { get; set; }
         public Paciente? Paciente { get; set; }
     }

@@ -11,7 +11,7 @@ using WebApplicationOdontoPrev.Data;
 namespace WebApplicationOdontoPrev.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241107215324_First")]
+    [Migration("20241108234933_First")]
     partial class First
     {
         /// <inheritdoc />
@@ -46,7 +46,6 @@ namespace WebApplicationOdontoPrev.Migrations
                 {
                     b.Property<int>("IdAnaliseRaioX")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
                         .HasColumnType("NUMBER(10)")
                         .HasColumnName("id_analise_raio_x");
 
@@ -63,8 +62,8 @@ namespace WebApplicationOdontoPrev.Migrations
                         .HasColumnName("dt_analise_raio_x");
 
                     b.Property<int>("IdRaioX")
-                        .HasMaxLength(20)
-                        .HasColumnType("NUMBER(10)");
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("id_raio_x");
 
                     b.HasKey("IdAnaliseRaioX");
 
@@ -77,7 +76,6 @@ namespace WebApplicationOdontoPrev.Migrations
                 {
                     b.Property<int>("IdCheckIn")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
                         .HasColumnType("NUMBER(10)")
                         .HasColumnName("id_check_in");
 
@@ -89,16 +87,16 @@ namespace WebApplicationOdontoPrev.Migrations
                         .HasColumnName("dt_check_in");
 
                     b.Property<int>("IdPaciente")
-                        .HasMaxLength(20)
-                        .HasColumnType("NUMBER(10)");
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("id_paciente");
 
                     b.Property<int>("IdPergunta")
-                        .HasMaxLength(20)
-                        .HasColumnType("NUMBER(10)");
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("id_pergunta");
 
                     b.Property<int>("IdResposta")
-                        .HasMaxLength(20)
-                        .HasColumnType("NUMBER(10)");
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("id_resposta");
 
                     b.HasKey("IdCheckIn");
 
@@ -115,7 +113,6 @@ namespace WebApplicationOdontoPrev.Migrations
                 {
                     b.Property<int>("IdDentista")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
                         .HasColumnType("NUMBER(10)")
                         .HasColumnName("id_dentista");
 
@@ -160,7 +157,6 @@ namespace WebApplicationOdontoPrev.Migrations
                 {
                     b.Property<int>("IdExtratoPontos")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
                         .HasColumnType("NUMBER(10)")
                         .HasColumnName("id_extrato_pontos");
 
@@ -178,11 +174,10 @@ namespace WebApplicationOdontoPrev.Migrations
                         .HasColumnName("dt_extrato");
 
                     b.Property<int>("IdPaciente")
-                        .HasMaxLength(20)
-                        .HasColumnType("NUMBER(10)");
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("id_paciente");
 
                     b.Property<int>("NrNumeroPontos")
-                        .HasMaxLength(10)
                         .HasColumnType("NUMBER(10)")
                         .HasColumnName("nr_numero_pontos");
 
@@ -197,7 +192,6 @@ namespace WebApplicationOdontoPrev.Migrations
                 {
                     b.Property<int>("IdPaciente")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
                         .HasColumnType("NUMBER(10)")
                         .HasColumnName("id_paciente");
 
@@ -221,8 +215,8 @@ namespace WebApplicationOdontoPrev.Migrations
                         .HasColumnName("dt_nascimento");
 
                     b.Property<int>("IdPlano")
-                        .HasMaxLength(20)
-                        .HasColumnType("NUMBER(10)");
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("id_plano");
 
                     b.Property<string>("NmPaciente")
                         .IsRequired()
@@ -252,12 +246,12 @@ namespace WebApplicationOdontoPrev.Migrations
             modelBuilder.Entity("WebApplicationOdontoPrev.Models.PacienteDentista", b =>
                 {
                     b.Property<int>("IdPaciente")
-                        .HasMaxLength(20)
-                        .HasColumnType("NUMBER(10)");
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("id_paciente");
 
                     b.Property<int>("IdDentista")
-                        .HasMaxLength(20)
-                        .HasColumnType("NUMBER(10)");
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("id_dentista");
 
                     b.HasKey("IdPaciente", "IdDentista");
 
@@ -270,7 +264,6 @@ namespace WebApplicationOdontoPrev.Migrations
                 {
                     b.Property<int>("IdPergunta")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
                         .HasColumnType("NUMBER(10)")
                         .HasColumnName("id_pergunta");
 
@@ -291,7 +284,6 @@ namespace WebApplicationOdontoPrev.Migrations
                 {
                     b.Property<int>("IdPlano")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
                         .HasColumnType("NUMBER(10)")
                         .HasColumnName("id_plano");
 
@@ -318,7 +310,6 @@ namespace WebApplicationOdontoPrev.Migrations
                 {
                     b.Property<int>("IdRaioX")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
                         .HasColumnType("NUMBER(10)")
                         .HasColumnName("id_raio_x");
 
@@ -336,8 +327,8 @@ namespace WebApplicationOdontoPrev.Migrations
                         .HasColumnName("dt_data_raio_x");
 
                     b.Property<int>("IdPaciente")
-                        .HasMaxLength(20)
-                        .HasColumnType("NUMBER(10)");
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("id_paciente");
 
                     b.Property<byte[]>("ImRaioX")
                         .HasColumnType("RAW(2000)")
@@ -354,7 +345,6 @@ namespace WebApplicationOdontoPrev.Migrations
                 {
                     b.Property<int>("IdResposta")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
                         .HasColumnType("NUMBER(10)")
                         .HasColumnName("id_resposta");
 

@@ -10,6 +10,7 @@ namespace WebApplicationOdontoPrev.Models
     {
         [Key]
         [Required]
+        [Column("id_paciente")]
         [ForeignKey("Paciente")]
         //[MaxLength(20)]
         public int IdPaciente { get; set; }
@@ -17,6 +18,7 @@ namespace WebApplicationOdontoPrev.Models
 
         [Key]
         [Required]
+        [Column("id_dentista")]
         [ForeignKey("Dentista")]
         //[MaxLength(20)]
         public int IdDentista { get; set; }

@@ -19,18 +19,21 @@ namespace WebApplicationOdontoPrev.Models
         public DateOnly DtCheckIn { get; set; }
 
         [Required]
+        [Column("id_paciente")]
         [ForeignKey("Paciente")]
         //[MaxLength(20)]
         public int IdPaciente { get; set; }
         public Paciente? Paciente { get; set; }
 
         [Required]
+        [Column("id_pergunta")]
         [ForeignKey("Perguntas")]
         //[MaxLength(20)]
         public int IdPergunta { get; set; }
         public Perguntas? Perguntas { get; set; }
 
         [Required]
+        [Column("id_resposta")]
         [ForeignKey("Respostas")]
         //[MaxLength(20)]
         public int IdResposta { get; set; }

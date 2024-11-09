@@ -45,6 +45,7 @@ namespace WebApplicationOdontoPrev.Models
         public string DsEmail { get; set; } = string.Empty;                 
 
         [Required]
+        [Column("id_plano")]
         [ForeignKey("Plano")]
         //[MaxLength(20)]
         public int IdPlano { get; set; }

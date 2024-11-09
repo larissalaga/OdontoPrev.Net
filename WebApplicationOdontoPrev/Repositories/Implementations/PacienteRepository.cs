@@ -84,7 +84,28 @@ namespace WebApplicationOdontoPrev.Repositories.Implementations
                 return getPaciente;
         }
 
-        public async Task<Models.Paciente> Update(string nrCpf , PacienteDtos paciente)
+        public async Task<Models.Paciente> UpdateById(int id, PacienteDtos paciente)
+        {
+            var getPaciente = await _context.Paciente.FirstOrDefaultAsync(x => x.IdPaciente == id);
+            if (getPaciente == null)
+            {
+                throw new Exception("Paciente não encontrado.");
+            }
+            else
+            {
+                getPaciente.NmPaciente = paciente.NmPaciente;
+                getPaciente.NrCpf = paciente.NrCpf;
+                getPaciente.NrTelefone = paciente.NrTelefone;
+                getPaciente.DsEmail = paciente.DsEmail;
+                getPaciente.DtNascimento = paciente.DtNascimento;
+                getPaciente.DsSexo = paciente.DsSexo;
+                getPaciente.IdPlano = paciente.IdPlano;
+                await _context.SaveChangesAsync();
+                return getPaciente;
+            }
+        }
+
+            public async Task<Models.Paciente> Update(string nrCpf , PacienteDtos paciente)
         {
             var getPaciente = await _context.Paciente.FirstOrDefaultAsync(x => x.NrCpf == paciente.NrCpf);
             if (getPaciente == null)

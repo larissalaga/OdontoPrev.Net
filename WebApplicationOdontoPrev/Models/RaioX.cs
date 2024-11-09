@@ -31,6 +31,7 @@ namespace WebApplicationOdontoPrev.Models
         public DateOnly DtDataRaioX { get; set; }
 
         [Required]
+        [Column("id_paciente")]
         [ForeignKey("Paciente")]
         //[MaxLength(20)]
         public int IdPaciente { get; set; }

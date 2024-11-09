@@ -164,7 +164,7 @@ namespace WebApplicationOdontoPrev.Controllers
                 var pacienteDto = _mapper.Map<PacienteDtos>(paciente);
 
                 // Salva as alterações no banco de dados
-                await _paciente.Update(paciente.NrCpf, pacienteDto);                
+                await _paciente.UpdateById(paciente.IdPaciente, pacienteDto);                
             }
             catch (Exception ex)
             {
@@ -307,6 +307,11 @@ namespace WebApplicationOdontoPrev.Controllers
                 DsEmail = pacienteDados.Paciente.DsEmail
             };
             return View("Perfil", perfil);
+        }
+        public async Task<IActionResult> AdicionarPaciente()
+        {
+            var pacienteDados = new PacienteDados();
+            return View("DetalhesPaciente", pacienteDados);
         }
         public async Task<IActionResult> Index()
         {
