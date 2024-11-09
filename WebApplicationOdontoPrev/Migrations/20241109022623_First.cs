@@ -41,8 +41,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_DENTISTA",
                 columns: table => new
                 {
-                    id_dentista = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    id_dentista = table.Column<int>(type: "NUMBER(10)", nullable: false, defaultValueSql: "SEQ_T_OPBD_DENTISTA.NEXTVAL"),
                     nm_dentista = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: false),
                     ds_cro = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: false),
                     ds_email = table.Column<string>(type: "NVARCHAR2(70)", maxLength: 70, nullable: false),
@@ -58,8 +57,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_PERGUNTAS",
                 columns: table => new
                 {
-                    id_pergunta = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    id_pergunta = table.Column<int>(type: "NUMBER(10)", nullable: false, defaultValueSql: "SEQ_T_OPBD_PERGUNTAS.NEXTVAL"),
                     ds_pergunta = table.Column<string>(type: "NVARCHAR2(300)", maxLength: 300, nullable: false)
                 },
                 constraints: table =>
@@ -71,8 +69,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_PLANO",
                 columns: table => new
                 {
-                    id_plano = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    id_plano = table.Column<int>(type: "NUMBER(10)", nullable: false, defaultValueSql: "SEQ_T_OPBD_PLANO.NEXTVAL"),
                     ds_codigo_plano = table.Column<string>(type: "NVARCHAR2(15)", maxLength: 15, nullable: false),
                     nm_plano = table.Column<string>(type: "NVARCHAR2(60)", maxLength: 60, nullable: false)
                 },
@@ -85,8 +82,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_RESPOSTAS",
                 columns: table => new
                 {
-                    id_resposta = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    id_resposta = table.Column<int>(type: "NUMBER(10)", nullable: false, defaultValueSql: "SEQ_T_OPBD_RESPOSTAS.NEXTVAL"),
                     ds_resposta = table.Column<string>(type: "NVARCHAR2(400)", maxLength: 400, nullable: false)
                 },
                 constraints: table =>
@@ -98,8 +94,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_PACIENTE",
                 columns: table => new
                 {
-                    id_paciente = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    id_paciente = table.Column<int>(type: "NUMBER(10)", nullable: false, defaultValueSql: "SEQ_T_OPBD_PACIENTE.NEXTVAL"),
                     nm_paciente = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: false),
                     dt_nascimento = table.Column<string>(type: "NVARCHAR2(10)", nullable: false),
                     nr_cpf = table.Column<string>(type: "NVARCHAR2(11)", maxLength: 11, nullable: false),
@@ -123,8 +118,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_CHECK_IN",
                 columns: table => new
                 {
-                    id_check_in = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    id_check_in = table.Column<int>(type: "NUMBER(10)", nullable: false, defaultValueSql: "SEQ_T_OPBD_CHECK_IN.NEXTVAL"),
                     dt_check_in = table.Column<string>(type: "NVARCHAR2(10)", nullable: false),
                     id_paciente = table.Column<int>(type: "NUMBER(10)", nullable: false),
                     id_pergunta = table.Column<int>(type: "NUMBER(10)", nullable: false),
@@ -157,8 +151,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_EXTRATO_PONTOS",
                 columns: table => new
                 {
-                    id_extrato_pontos = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    id_extrato_pontos = table.Column<int>(type: "NUMBER(10)", nullable: false, defaultValueSql: "SEQ_T_OPBD_EXTRATO_PONTOS.NEXTVAL"),
                     dt_extrato = table.Column<string>(type: "NVARCHAR2(10)", nullable: false),
                     nr_numero_pontos = table.Column<int>(type: "NUMBER(10)", nullable: false),
                     ds_movimentacao = table.Column<string>(type: "NVARCHAR2(50)", maxLength: 50, nullable: false),
@@ -203,8 +196,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_RAIO_X",
                 columns: table => new
                 {
-                    id_raio_x = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    id_raio_x = table.Column<int>(type: "NUMBER(10)", nullable: false, defaultValueSql: "SEQ_T_OPBD_RAIO_X.NEXTVAL"),
                     ds_raio_x = table.Column<string>(type: "NVARCHAR2(200)", maxLength: 200, nullable: false),
                     im_raio_x = table.Column<byte[]>(type: "RAW(2000)", nullable: true),
                     dt_data_raio_x = table.Column<string>(type: "NVARCHAR2(10)", nullable: false),
@@ -225,8 +217,7 @@ namespace WebApplicationOdontoPrev.Migrations
                 name: "T_OPBD_ANALISE_RAIO_X",
                 columns: table => new
                 {
-                    id_analise_raio_x = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    id_analise_raio_x = table.Column<int>(type: "NUMBER(10)", nullable: false, defaultValueSql: "SEQ_T_OPBD_ANALISE_RAIO_X.NEXTVAL"),
                     ds_analise_raio_x = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     dt_analise_raio_x = table.Column<string>(type: "NVARCHAR2(10)", nullable: false),
                     id_raio_x = table.Column<int>(type: "NUMBER(10)", nullable: false)

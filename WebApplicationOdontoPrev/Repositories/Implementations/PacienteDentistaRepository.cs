@@ -23,7 +23,7 @@ namespace WebApplicationOdontoPrev.Repositories.Implementations
             _context.PacienteDentista.Add(newPacienteDentista);
             await _context.SaveChangesAsync();
             return newPacienteDentista;
-        }
+        }        
         public async void Delete(int id_paciente, int id_dentista)
         {
             var getPacienteDentista = await _context.PacienteDentista.FirstOrDefaultAsync(x => x.IdPaciente == id_paciente && x.IdDentista == id_dentista);

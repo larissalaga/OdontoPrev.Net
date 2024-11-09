@@ -25,17 +25,18 @@ namespace WebApplicationOdontoPrev.Repositories.Implementations
             return newRespostas;
         }
 
-        public async void Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             var getRespostas = await _context.Respostas.FirstOrDefaultAsync(x => x.IdResposta == id);
             if (getRespostas == null)
             {
-                throw new Exception("Respostas não encontrada.");
+                return true;
             }
             else
             {
                 _context.Respostas.Remove(getRespostas);
                 await _context.SaveChangesAsync();
+                return true;
             }
         }
 

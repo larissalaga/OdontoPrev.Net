@@ -9,7 +9,7 @@ namespace WebApplicationOdontoPrev.Models
         [Key]
         [Required]        
         [Column("id_analise_raio_x")]
-        //[MaxLength(20)]
+        //[MaxLength(20)]        
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdAnaliseRaioX { get; set; }
 

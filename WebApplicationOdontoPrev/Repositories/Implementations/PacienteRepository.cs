@@ -38,6 +38,20 @@ namespace WebApplicationOdontoPrev.Repositories.Implementations
                 return newPaciente;
             }
         }
+        public async Task<bool> DeleteById(int id)
+        {
+            var getPaciente = await _context.Paciente.FirstOrDefaultAsync(x => x.IdPaciente == id);
+            if (getPaciente == null)
+            {
+                return true;
+            }
+            else
+            {
+                _context.Paciente.Remove(getPaciente);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+        }
 
         public async void Delete(string nr_cpf)
         {

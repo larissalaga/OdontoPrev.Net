@@ -26,8 +26,21 @@ namespace WebApplicationOdontoPrev.Repositories.Implementations
                 await _context.SaveChangesAsync();
                 return newExtratoPontos;            
         }
-
-        public async void Delete(int IdExtratoPontos)
+        public async Task<bool> DeleteByIdPacient(int idPaciente)
+        {
+            var getExtratoPontos = await _context.ExtratoPontos.FirstOrDefaultAsync(x => x.IdPaciente == idPaciente);
+            if (getExtratoPontos == null)
+            {
+                return true;
+            }
+            else
+            {
+                _context.ExtratoPontos.Remove(getExtratoPontos);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+        }
+            public async void Delete(int IdExtratoPontos)
         {
             var getExtratoPontos = await _context.ExtratoPontos.FirstOrDefaultAsync(x => x.IdExtratoPontos == IdExtratoPontos);
             if (getExtratoPontos == null)
@@ -56,7 +69,7 @@ namespace WebApplicationOdontoPrev.Repositories.Implementations
 
         public async Task<List<Models.ExtratoPontos>> GetById(int idPaciente)
         {
-            var getExtratoPontos = await _context.ExtratoPontos.ToListAsync();
+            var getExtratoPontos = await _context.ExtratoPontos.Where(x => x.IdPaciente == idPaciente).ToListAsync();
             if (getExtratoPontos == null)
             {
                 throw new Exception("Extratos de pontos não encontrados.");

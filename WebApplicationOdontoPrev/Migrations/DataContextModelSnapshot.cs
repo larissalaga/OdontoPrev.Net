@@ -44,9 +44,8 @@ namespace WebApplicationOdontoPrev.Migrations
                     b.Property<int>("IdAnaliseRaioX")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(10)")
-                        .HasColumnName("id_analise_raio_x");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAnaliseRaioX"));
+                        .HasColumnName("id_analise_raio_x")
+                        .HasDefaultValueSql("SEQ_T_OPBD_ANALISE_RAIO_X.NEXTVAL");
 
                     b.Property<string>("DsAnaliseRaioX")
                         .IsRequired()
@@ -74,9 +73,8 @@ namespace WebApplicationOdontoPrev.Migrations
                     b.Property<int>("IdCheckIn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(10)")
-                        .HasColumnName("id_check_in");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCheckIn"));
+                        .HasColumnName("id_check_in")
+                        .HasDefaultValueSql("SEQ_T_OPBD_CHECK_IN.NEXTVAL");
 
                     b.Property<string>("DtCheckIn")
                         .IsRequired()
@@ -111,9 +109,8 @@ namespace WebApplicationOdontoPrev.Migrations
                     b.Property<int>("IdDentista")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(10)")
-                        .HasColumnName("id_dentista");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdDentista"));
+                        .HasColumnName("id_dentista")
+                        .HasDefaultValueSql("SEQ_T_OPBD_DENTISTA.NEXTVAL");
 
                     b.Property<string>("DsCro")
                         .IsRequired()
@@ -155,9 +152,8 @@ namespace WebApplicationOdontoPrev.Migrations
                     b.Property<int>("IdExtratoPontos")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(10)")
-                        .HasColumnName("id_extrato_pontos");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdExtratoPontos"));
+                        .HasColumnName("id_extrato_pontos")
+                        .HasDefaultValueSql("SEQ_T_OPBD_EXTRATO_PONTOS.NEXTVAL");
 
                     b.Property<string>("DsMovimentacao")
                         .IsRequired()
@@ -190,9 +186,8 @@ namespace WebApplicationOdontoPrev.Migrations
                     b.Property<int>("IdPaciente")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(10)")
-                        .HasColumnName("id_paciente");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPaciente"));
+                        .HasColumnName("id_paciente")
+                        .HasDefaultValueSql("SEQ_T_OPBD_PACIENTE.NEXTVAL");
 
                     b.Property<string>("DsEmail")
                         .IsRequired()
@@ -262,9 +257,8 @@ namespace WebApplicationOdontoPrev.Migrations
                     b.Property<int>("IdPergunta")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(10)")
-                        .HasColumnName("id_pergunta");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPergunta"));
+                        .HasColumnName("id_pergunta")
+                        .HasDefaultValueSql("SEQ_T_OPBD_PERGUNTAS.NEXTVAL");
 
                     b.Property<string>("DsPergunta")
                         .IsRequired()
@@ -282,9 +276,8 @@ namespace WebApplicationOdontoPrev.Migrations
                     b.Property<int>("IdPlano")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(10)")
-                        .HasColumnName("id_plano");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPlano"));
+                        .HasColumnName("id_plano")
+                        .HasDefaultValueSql("SEQ_T_OPBD_PLANO.NEXTVAL");
 
                     b.Property<string>("DsCodigoPlano")
                         .IsRequired()
@@ -308,9 +301,8 @@ namespace WebApplicationOdontoPrev.Migrations
                     b.Property<int>("IdRaioX")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(10)")
-                        .HasColumnName("id_raio_x");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRaioX"));
+                        .HasColumnName("id_raio_x")
+                        .HasDefaultValueSql("SEQ_T_OPBD_RAIO_X.NEXTVAL");
 
                     b.Property<string>("DsRaioX")
                         .IsRequired()
@@ -343,9 +335,8 @@ namespace WebApplicationOdontoPrev.Migrations
                     b.Property<int>("IdResposta")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(10)")
-                        .HasColumnName("id_resposta");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdResposta"));
+                        .HasColumnName("id_resposta")
+                        .HasDefaultValueSql("SEQ_T_OPBD_RESPOSTAS.NEXTVAL");
 
                     b.Property<string>("DsResposta")
                         .IsRequired()

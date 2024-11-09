@@ -10,6 +10,6 @@ namespace WebApplicationOdontoPrev.Repositories.Interfaces
         Task<bool> DeleteByIdPaciente(int id_paciente);
         Task<List<PacienteDentista>> GetAll();
         Task<PacienteDentista> GetById(int id_paciente, int id_dentista);
-        Task<List<PacienteDentista>> GetByPaciente(int id_paciente);
+        Task<List<PacienteDentista>> GetByPaciente(int id_paciente);        
     }
 }

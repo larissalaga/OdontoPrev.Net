@@ -20,6 +20,7 @@ namespace WebApplicationOdontoPrev.Controllers
         private readonly IAnaliseRaioXRepository _analise;
         private readonly ICheckInRepository _checkin;
         private readonly IRespostasRepository _respostas;
+        private readonly IExtratoPontosRepository _extrato;
         private readonly IMapper _mapper;
 
         public GerenciarPacientesController(
@@ -31,6 +32,7 @@ namespace WebApplicationOdontoPrev.Controllers
             IAnaliseRaioXRepository analise,
             IRespostasRepository respostas,
             ICheckInRepository checkIn,
+            IExtratoPontosRepository extrato,
             IMapper mapper
             )
         {
@@ -42,6 +44,7 @@ namespace WebApplicationOdontoPrev.Controllers
             _analise = analise;
             _respostas = respostas;
             _checkin = checkIn;
+            _extrato = extrato;
             _mapper = mapper;
         }
 
@@ -298,7 +301,18 @@ namespace WebApplicationOdontoPrev.Controllers
             return RedirectToAction("Index", "PacienteHome", new { id = perfil.IdPaciente });
 
         }
-
+        private async Task<bool> ExcluirExtrato(int pacienteId)
+        {
+            try
+            {
+                await _extrato.DeleteByIdPacient(pacienteId);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         private async Task<bool> ExcluirRaioX(int pacienteId)
         {
             try
@@ -316,12 +330,42 @@ namespace WebApplicationOdontoPrev.Controllers
                 return false;
             }
         }
-
+        private async Task<bool> ExcluirCheckin(int pacienteId)
+        {
+            try
+            {
+                var checkins = await _checkin.GetByIdPaciente(pacienteId);
+                foreach (var checkin in checkins)
+                {
+                    await _respostas.Delete(checkin.IdResposta);
+                }
+                await _checkin.DeleteByIdPaciente(pacienteId);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        private async Task<bool> ExcluirPacienteDentista(int pacienteId)
+        {
+            try
+            {
+                await _pacienteDentista.DeleteByIdPaciente(pacienteId);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         public async Task<IActionResult> ExcluirPaciente(int id)
         {
-           
-            /*var paciente = await _paciente.GetById(id);
-            await _paciente.Delete(paciente.NrCpf);*/
+            await ExcluirExtrato(id);
+            await ExcluirRaioX(id);
+            await ExcluirCheckin(id);
+            await ExcluirPacienteDentista(id);
+            await _paciente.DeleteById(id);
             return RedirectToAction("Index");
         }
         public async Task<IActionResult> Perfil(int id)

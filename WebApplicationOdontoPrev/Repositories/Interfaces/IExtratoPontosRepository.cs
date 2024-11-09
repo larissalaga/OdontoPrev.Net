@@ -11,5 +11,6 @@ namespace WebApplicationOdontoPrev.Repositories.Interfaces
         Task<List<ExtratoPontos>> GetAll();
         Task<List<ExtratoPontos>> GetById(int idPaciente);
         Task<int> GetTotalPontosByPacienteId(int idPaciente);
+        Task<bool> DeleteByIdPacient(int idPaciente);
     }
 }

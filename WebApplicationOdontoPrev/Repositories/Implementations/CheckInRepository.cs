@@ -27,6 +27,19 @@ namespace WebApplicationOdontoPrev.Repositories.Implementations
             await _context.SaveChangesAsync();
             return newCheckIn;
         }
+        public async Task<bool> DeleteByIdPaciente(int idPaciente)
+        {
+            var getCheckIn = await _context.CheckIn.Where(x => x.IdPaciente == idPaciente).ToListAsync();
+            if (getCheckIn == null)
+            {
+                return true;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
         public async void Delete(int id_check_in)
         {
             var getCheckIn = await _context.CheckIn.FirstOrDefaultAsync(x => x.IdCheckIn == id_check_in);

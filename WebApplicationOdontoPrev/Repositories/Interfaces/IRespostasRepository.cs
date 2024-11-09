@@ -7,7 +7,7 @@ namespace WebApplicationOdontoPrev.Repositories.Interfaces
     {
         Task<Respostas> Create(RespostasDtos respostas);
         Task<Respostas> Update(int id, RespostasDtos respostas);
-        public void Delete(int id);
+        Task<bool> Delete(int id);
         Task<List<Respostas>> GetAll();
         Task<Respostas> GetById(int id);
 

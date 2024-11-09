@@ -12,5 +12,6 @@ namespace WebApplicationOdontoPrev.Repositories.Interfaces
         Task<List<Paciente>> GetAll();
         Task<Paciente> GetByNrCpf(string nrCpf);
         Task<Paciente> GetById(int id);
+        Task<bool> DeleteById(int id);
     }
 }
