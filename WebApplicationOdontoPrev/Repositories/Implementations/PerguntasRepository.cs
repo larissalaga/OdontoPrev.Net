@@ -64,7 +64,22 @@ namespace WebApplicationOdontoPrev.Repositories.Implementations
                 return getPerguntas;
             }
         }
+        public async Task<Models.Perguntas> GetProximaPerguntaAsync(int idPerguntaAtual)
+        {
+            var proximaPergunta = await _context.Perguntas
+                .Where(p => p.IdPergunta > idPerguntaAtual)
+                .OrderBy(p => p.IdPergunta)
+                .FirstOrDefaultAsync();
 
+            if (proximaPergunta == null)
+            {
+                return await _context.Perguntas
+                    .OrderBy(p => p.IdPergunta)
+                    .FirstOrDefaultAsync();
+            }
+
+            return proximaPergunta;
+        }
         public async Task<Models.Perguntas> GetPerguntaAleatoriaAsync()
         {
             if (!_context.Perguntas.Any())
@@ -72,7 +87,9 @@ namespace WebApplicationOdontoPrev.Repositories.Implementations
                 throw new Exception("Nenhuma pergunta encontrada.");
             }
 
-            return await _context.Perguntas.OrderBy(x => Guid.NewGuid()).FirstOrDefaultAsync();
+            return await _context.Perguntas
+                     .OrderBy(p => Guid.NewGuid()) // Ordenação aleatória
+                     .FirstOrDefaultAsync();
         }
     }
 }

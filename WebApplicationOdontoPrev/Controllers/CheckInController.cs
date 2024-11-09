@@ -49,20 +49,29 @@ namespace WebApplicationOdontoPrev.Controllers
         public async Task<IActionResult> Pergunta(CheckInViewModel checkInViewModel)
         { 
           
-            if (checkInViewModel.Contador > 5)
+            if (checkInViewModel.Contador > 10) // Limita a 10 perguntas respondidas
             {
-                return RedirectToAction("Index", "PacienteHome");
-            }
-            
-            var perguntaAleatoria = await _perguntas.GetPerguntaAleatoriaAsync();
-
-            if (perguntaAleatoria == null)
-            {
-                return RedirectToAction("Index", "PacienteHome");
+                return RedirectToAction("Index", "PacienteHome", new { id = checkInViewModel.IdPaciente });
             }
 
-            checkInViewModel.IdPergunta = perguntaAleatoria.IdPergunta;
-            checkInViewModel.DsPergunta = perguntaAleatoria.DsPergunta;
+            var pergunta = new Perguntas();
+            if (checkInViewModel.Contador == 1)
+            {                
+                pergunta = await _perguntas.GetProximaPerguntaAsync(0);
+            }
+            else
+            {
+                pergunta = await _perguntas.GetProximaPerguntaAsync(checkInViewModel.IdPergunta);             
+            }
+                        
+            if (pergunta == null)
+            {
+                return RedirectToAction("Index", "PacienteHome", new {id = checkInViewModel.IdPaciente});
+            }
+
+            checkInViewModel.IdPergunta = pergunta.IdPergunta;
+            checkInViewModel.DsPergunta = pergunta.DsPergunta;            
+            checkInViewModel.DsResposta = "";
 
             return View("Index", checkInViewModel);            
         }
@@ -77,7 +86,7 @@ namespace WebApplicationOdontoPrev.Controllers
 
             var novaResposta = new RespostasDtos
             {
-                DsResposta = viewModel.DsResposta
+                DsResposta = viewModel.DsResposta                
             };
             var resposta = await _respostas.Create(novaResposta);
             
@@ -86,7 +95,7 @@ namespace WebApplicationOdontoPrev.Controllers
                 DtCheckIn = viewModel.DtCheckIn,
                 IdPaciente = viewModel.IdPaciente,
                 IdPergunta = viewModel.IdPergunta,
-                IdResposta = viewModel.IdResposta
+                IdResposta = resposta.IdResposta
             };
             await _checkIn.Create(novoCheckIn);
             

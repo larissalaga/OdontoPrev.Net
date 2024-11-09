@@ -42,6 +42,32 @@ namespace WebApplicationOdontoPrev.Repositories.Implementations
             }
         }
 
+        public async Task<bool> DeleteByIdPaciente(int idPaciente)
+        {
+            var getRaioX = await _context.RaioX.FirstOrDefaultAsync(x => x.IdPaciente == idPaciente);
+            if (getRaioX == null)
+            {
+                return true;
+            }
+            else
+            {
+                _context.RaioX.Remove(getRaioX);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+        }
+        public async Task<List<Models.RaioX>> GetByIdPaciente(int idPaciente)
+        {
+            var getRaioX = await _context.RaioX.Where(x => x.IdPaciente == idPaciente).ToListAsync();
+            if (getRaioX == null)
+            {
+                throw new Exception("RaioX não encontrado.");
+            }
+            else
+            {
+                return getRaioX;
+            }
+        }
         public async Task<List<Models.RaioX>> GetAll()
         {
             var getRaioX = await _context.RaioX.ToListAsync();

@@ -16,6 +16,10 @@ namespace WebApplicationOdontoPrev.Controllers
         private readonly IPlanoRepository _plano;
         private readonly IDentistaRepository _dentista;
         private readonly IPacienteDentistaRepository _pacienteDentista;
+        private readonly IRaioXRepository _raioX;
+        private readonly IAnaliseRaioXRepository _analise;
+        private readonly ICheckInRepository _checkin;
+        private readonly IRespostasRepository _respostas;
         private readonly IMapper _mapper;
 
         public GerenciarPacientesController(
@@ -23,6 +27,10 @@ namespace WebApplicationOdontoPrev.Controllers
             IPlanoRepository plano,
             IDentistaRepository dentista,
             IPacienteDentistaRepository pacienteDentista,
+            IRaioXRepository raioX,
+            IAnaliseRaioXRepository analise,
+            IRespostasRepository respostas,
+            ICheckInRepository checkIn,
             IMapper mapper
             )
         {
@@ -30,6 +38,10 @@ namespace WebApplicationOdontoPrev.Controllers
             _plano = plano;
             _dentista = dentista;
             _pacienteDentista = pacienteDentista;
+            _raioX = raioX;
+            _analise = analise;
+            _respostas = respostas;
+            _checkin = checkIn;
             _mapper = mapper;
         }
 
@@ -286,8 +298,28 @@ namespace WebApplicationOdontoPrev.Controllers
             return RedirectToAction("Index", "PacienteHome", new { id = perfil.IdPaciente });
 
         }
+
+        private async Task<bool> ExcluirRaioX(int pacienteId)
+        {
+            try
+            {
+                var raiosX = await _raioX.GetByIdPaciente(pacienteId);
+                foreach (var raioX in raiosX)
+                {
+                    await _analise.DeleteByIdRaioX(raioX.IdRaioX);
+                }
+                await _raioX.DeleteByIdPaciente(pacienteId);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public async Task<IActionResult> ExcluirPaciente(int id)
         {
+           
             /*var paciente = await _paciente.GetById(id);
             await _paciente.Delete(paciente.NrCpf);*/
             return RedirectToAction("Index");

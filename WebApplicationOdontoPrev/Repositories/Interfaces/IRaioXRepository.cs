@@ -10,5 +10,7 @@ namespace WebApplicationOdontoPrev.Repositories.Interfaces
         public void Delete(int id);
         Task<List<RaioX>> GetAll();
         Task<RaioX> GetById(int id);
+        Task<bool> DeleteByIdPaciente(int idPaciente);
+        Task<List<Models.RaioX>> GetByIdPaciente(int idPaciente);
     }
 }

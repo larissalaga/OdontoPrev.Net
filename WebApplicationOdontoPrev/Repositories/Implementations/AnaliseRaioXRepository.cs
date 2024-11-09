@@ -35,7 +35,20 @@ namespace WebApplicationOdontoPrev.Repositories.Implementations
             }
 
         }
-
+        public async Task<bool> DeleteByIdRaioX(int raioX)
+        {
+            var getAnaliseRaioX = await _context.AnaliseRaioX.FirstOrDefaultAsync(x => x.IdRaioX == raioX);
+            if (getAnaliseRaioX == null)
+            {
+                return true;
+            }
+            else
+            {
+                _context.AnaliseRaioX.Remove(getAnaliseRaioX);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+        }
         public async void Delete(int idRaioX)
         {
             var getAnaliseRaioX = await _context.AnaliseRaioX.FirstOrDefaultAsync(x => x.IdRaioX == idRaioX);

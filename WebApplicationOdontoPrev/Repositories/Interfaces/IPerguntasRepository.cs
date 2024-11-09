@@ -10,5 +10,6 @@ namespace WebApplicationOdontoPrev.Repositories.Interfaces
         Task<List<Perguntas>> GetAll();
         Task<Perguntas> GetById(int IdPergunta);
         Task<Perguntas> GetPerguntaAleatoriaAsync();
+        Task<Models.Perguntas> GetProximaPerguntaAsync(int idPerguntaAtual);
     }
 }

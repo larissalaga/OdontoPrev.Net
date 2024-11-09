@@ -40,7 +40,11 @@
             
             <div class="d-flex justify-content-between mt-4">
                 <button type="button" class="btn btn-primary btn-lg rounded-pill" onclick="location.href='@Url.Action("Index","PacienteHome", new { id = Model.IdPaciente })'">
-                    Cancelar
+                    @if (@Model.Contador > 1) {
+                        <span>Voltar/Concluir</span>
+                    } else {
+                        <span>Cancelar</span>
+                    }                    
                 </button>
                 <button type="submit" class="btn btn-success rounded-pill">
                     Avançar/Concluir
